@@ -22,12 +22,34 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "resume.pdf",
+                "input": "src/assets",
+                "output": "/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/bootstrap.min.css",
+              "src/css/font-awesome.min.css",
+              "src/css/flaticon.css",
+              "src/css/owl.carousel.css",
+              "src/css/magnific-popup.css",
+              "src/css/style.css"
+
+
             ],
-            "scripts": [],
+            "scripts": [
+
+              "src/js/jquery-2.1.4.min.js",
+              "src/js/bootstrap.min.js",
+              "src/js/owl.carousel.min.js",
+              "src/js/magnific-popup.min.js",
+              "src/js/circle-progress.min.js",
+              "src/js/main.js"
+
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -86,15 +108,37 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "resume.pdf",
+                "input": "src/assets",
+                "output": "/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/bootstrap.min.css",
+              "src/css/font-awesome.min.css",
+              "src/css/flaticon.css",
+              "src/css/owl.carousel.css",
+              "src/css/magnific-popup.css",
+              "src/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+
+              "src/js/jquery-2.1.4.min.js",
+              "src/js/bootstrap.min.js",
+              "src/js/owl.carousel.min.js",
+              "src/js/magnific-popup.min.js",
+              "src/js/circle-progress.min.js",
+              "src/js/main.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

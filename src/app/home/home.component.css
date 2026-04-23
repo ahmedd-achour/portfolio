@@ -1,0 +1,12 @@
+.project-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #838488;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.portfolio-item h2 {
+    margin-bottom: 5px;
+}
