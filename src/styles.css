@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    scroll-behavior: smooth;
+}
+
+.site-btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.site-btn:hover {
+    background-color: #40424a !important;
+    color: #fff !important;
+}
+
+.social-links a {
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+}
