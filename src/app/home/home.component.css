@@ -1,53 +1,201 @@
-.project-desc {
-    font-size: 13px;
-    line-height: 1.6;
-    color: #838488;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    text-align: justify;
+/* Portfolio V2 - Cleaner Grid */
+.portfolio-item-v2 {
+    margin-bottom: 50px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.4s ease;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.portfolio-item h2 {
+.port-img {
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.port-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(64, 66, 74, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.port-overlay span {
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+}
+
+.portfolio-item-v2:hover .port-overlay {
+    opacity: 1;
+}
+
+.port-text {
+    padding: 25px 0;
+}
+
+.port-text h3 {
+    font-size: 24px;
     margin-bottom: 5px;
+    transition: all 0.3s;
 }
 
-/* Animations */
+.port-text p {
+    font-size: 14px;
+    color: #40424a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.port-text .summary {
+    font-size: 15px;
+    color: #838488;
+    line-height: 1.6;
+}
+
+/* Modal Styling */
+.project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+}
+
+.project-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border-radius: 4px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 35px;
+    background: none;
+    border: none;
+    color: #40424a;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.modal-image {
+    height: 100%;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-details {
+    padding: 60px;
+}
+
+.modal-details .category {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #838488;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.modal-details h2 {
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+
+.modal-description {
+    margin-bottom: 40px;
+}
+
+.tech-stack h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.tech-stack ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-stack ul li {
+    background: #f2f7f8;
+    padding: 6px 15px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+@media (max-width: 991px) {
+    .modal-image {
+        height: 300px;
+    }
+    .modal-details {
+        padding: 30px;
+    }
+}
+
+/* Animations from previous version */
 .reveal {
     opacity: 0;
     transition: all 0.8s ease-out;
 }
 
-.reveal-up {
-    transform: translateY(30px);
-}
-
-.reveal-left {
-    transform: translateX(-30px);
-}
-
-.reveal-right {
-    transform: translateX(30px);
-}
-
+.reveal-up { transform: translateY(30px); }
+.reveal-left { transform: translateX(-30px); }
+.reveal-right { transform: translateX(30px); }
 .reveal.active {
     opacity: 1;
     transform: translate(0, 0);
 }
 
-/* Delay for children or lists */
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-.hero-text h2 {
-    transition-delay: 0.1s;
-}
-
-.hero-text p {
-    transition-delay: 0.3s;
-}
-
-.hero-info {
-    transition-delay: 0.5s;
-}
+.hero-text h2 { transition-delay: 0.1s; }
+.hero-text p { transition-delay: 0.3s; }
+.hero-info { transition-delay: 0.5s; }
