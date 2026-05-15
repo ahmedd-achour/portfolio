@@ -51,6 +51,15 @@ export class HomeComponent implements AfterViewInit {
       tech: ['Flutter', 'Node.js', 'MongoDB', 'Push Notifications']
     },
     {
+      title: 'On-Demand Dashboard',
+      category: 'Web Platform',
+      image: 'assets/img/dashboard.png',
+      link: 'https://shnell.tn',
+      summary: 'Full-featured web dashboard for fleet management.',
+      description: 'A full-featured web dashboard for managing on-demand delivery services. It offers real-time fleet monitoring, order distribution algorithms, and comprehensive analytics for business growth. The platform integrates with various external APIs to provide accurate distance estimations and cost calculations.',
+      tech: ['Angular', 'RxJS', 'Node.js', 'Google Maps API']
+    },
+    {
       title: 'Cloudflare Chatbot API',
       category: 'Serverless AI & Edge Computing',
       image: 'assets/img/chatbot.png',
@@ -58,6 +67,15 @@ export class HomeComponent implements AfterViewInit {
       summary: 'Serverless AI backend built on Cloudflare Workers.',
       description: 'Designed for fast, scalable, and secure conversational responses using an integrated large language model. It runs at the edge, ensuring ultra-low latency and high availability for real-time chatbot applications.',
       tech: ['Cloudflare Workers', 'AI / LLM', 'Edge Computing', 'TypeScript']
+    },
+    {
+      title: 'Developer Portfolio',
+      category: 'Angular / Firebase',
+      image: 'assets/img/home-4-bg.png',
+      link: '#',
+      summary: 'Modern developer portfolio with clean UI/UX.',
+      description: 'This website itself is a portfolio project built with Angular. It showcases skills in front-end development, real-time data handling, and responsive design. The site features a clean and modern interface, optimized for performance and user experience across all devices.',
+      tech: ['Angular', 'TypeScript', 'CSS3', 'Firebase']
     }
   ];
 

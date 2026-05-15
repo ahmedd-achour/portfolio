@@ -3,9 +3,15 @@
     margin-bottom: 50px;
     cursor: pointer;
     background: #fff;
-    transition: all 0.4s ease;
-    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.portfolio-item-v2:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .port-img {
@@ -14,6 +20,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: all 0.6s ease;
+}
+
+.portfolio-item-v2:hover .port-img {
+    transform: scale(1.05);
 }
 
 .port-overlay {
@@ -22,7 +33,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    background: rgba(64, 66, 74, 0.9);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,8 +47,9 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 14px;
-    border: 1px solid #fff;
-    padding: 10px 20px;
+    border: 2px solid #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
 }
 
 .portfolio-item-v2:hover .port-overlay {
@@ -45,28 +57,27 @@
 }
 
 .port-text {
-    padding: 25px 0;
+    padding: 30px 20px;
+    background: #000000;
+    color: #1a1a1a;
+    position: relative;
+    z-index: 2;
 }
 
 .port-text h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-    transition: all 0.3s;
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #1a1a1a;
 }
 
 .port-text p {
-    font-size: 14px;
-    color: #40424a;
+    font-size: 13px;
+    color: #000000;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 0;
     font-weight: 600;
-}
-
-.port-text .summary {
-    font-size: 15px;
-    color: #838488;
-    line-height: 1.6;
 }
 
 /* Modal Styling */
@@ -76,7 +87,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.9);
     z-index: 9999;
     display: flex;
     align-items: center;
@@ -93,87 +104,122 @@
 }
 
 .modal-content {
-    background: #fff;
-    max-width: 1100px;
+    background: #000000;
+    color: #1a1a1a;
+    max-width: 1200px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    border-radius: 4px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .close-btn {
     position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 35px;
-    background: none;
+    right: 25px;
+    top: 20px;
+    font-size: 40px;
+    background: #fff;
     border: none;
-    color: #40424a;
+    color: #1a1a1a;
     z-index: 10;
     cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    color: #ff0000;
 }
 
 .modal-image {
     height: 100%;
-    min-height: 400px;
+    min-height: 500px;
     background-size: cover;
     background-position: center;
 }
 
 .modal-details {
-    padding: 60px;
+    padding: 80px 60px;
 }
 
 .modal-details .category {
-    font-size: 13px;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #838488;
+    letter-spacing: 3px;
+    color: #888;
     display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .modal-details h2 {
-    font-size: 45px;
-    margin-bottom: 30px;
+    font-size: 48px;
+    margin-bottom: 35px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.2;
 }
 
 .modal-description {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
+}
+
+.modal-description p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
 }
 
 .tech-stack h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
 }
 
 .tech-stack ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    padding: 0;
 }
 
 .tech-stack ul li {
-    background: #f2f7f8;
-    padding: 6px 15px;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 4px;
+    background: #f0f0f0;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.tech-stack ul li:hover {
+    background: #1a1a1a;
+    color: #fff;
 }
 
 @media (max-width: 991px) {
     .modal-image {
-        height: 300px;
+        height: 350px;
+        min-height: 350px;
     }
     .modal-details {
-        padding: 30px;
+        padding: 40px 30px;
+    }
+    .modal-details h2 {
+        font-size: 32px;
     }
 }
 
