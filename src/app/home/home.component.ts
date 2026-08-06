@@ -77,7 +77,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       description: 'A premium single-page portfolio showcasing projects, skills, and work experience. Built with Angular 17, featuring Lottie animations, scroll-reveal effects, a project modal system, and fully responsive mobile-first layout with soft gold accents.',
       tech: ['Angular 17', 'TypeScript', 'Lottie', 'CSS Custom Properties']
     },
-    {
+   /* {
       title: 'Coach Aymen Othmani',
       category: 'Web · Cloudflare Pages',
       image: 'assets/img/face.png',
@@ -85,7 +85,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       summary: 'Professional coaching website deployed on Cloudflare Pages.',
       description: 'A sleek and performant coaching website for Aymen Othmani, hosted on Cloudflare Pages for blazing-fast global delivery. Features a modern design, service showcases, and clear calls-to-action for client engagement.',
       tech: ['Angular', 'Cloudflare Pages', 'CSS', 'Responsive Design']
-    },
+    },*/
     {
       title: 'Cloudflare Chatbot API',
       category: 'Serverless AI & Edge Computing',
