@@ -1,397 +1,476 @@
-<!-- Page Preloder -->
+<!-- Page Preloader -->
 <div id="preloder">
   <div class="loader"></div>
 </div>
 
-<div class="portfolio-app-root">
-  <!-- Ambient background dynamic glow elements -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
-  <div class="ambient-glow glow-3"></div>
-  <div class="bg-grid-pattern"></div>
+<div class="home-two-style">
 
-  <!-- Header section start -->
-  <header class="header-section glass-nav sticky-top">
-    <div class="container">
-      <div class="d-flex align-items-center justify-content-between">
-        <div class="site-logo d-flex align-items-center gap-3">
-          <a routerLink="/" class="logo-text">ACHOUR<span class="logo-dot">.</span></a>
-          <span class="status-pill d-none d-md-inline-flex">
-            <span class="status-dot"></span> Available for Projects & Consulting
-          </span>
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║              HEADER                      ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <header class="header-section">
+    <div class="container-fluid">
+      <div class="row align-items-center header-row">
+        <div class="col-auto">
+          <div class="site-logo">
+            <h2><a routerLink="/">ACHOUR</a></h2>
+            <p>Mobile &amp; Full-Stack Developer · +216 94 190 332</p>
+          </div>
         </div>
-
-        <nav class="nav-menu d-none d-lg-flex align-items-center gap-4">
-          <a href="#home" class="nav-link-item">Home</a>
-          <a href="#portfolio" class="nav-link-item">Projects</a>
-          <a href="#skills" class="nav-link-item">Expertise</a>
-          <a href="#resume" class="nav-link-item">Experience</a>
-        </nav>
-
-        <div class="header-buttons d-flex align-items-center gap-2">
-          <a href="https://wa.me/21694190332" target="_blank" class="site-btn btn-glass no-popup">
-            <i class="fa fa-whatsapp mr-2"></i> WhatsApp
-          </a>
-          <a href="assets/resume.pdf" download="Achour_Ahmed_CV.pdf" class="site-btn btn-primary-gradient no-popup d-none d-sm-inline-flex align-items-center">
-            <i class="fa fa-download mr-2"></i> CV
-          </a>
+        <div class="col header-buttons">
+          <a href="https://wa.me/21694190332" target="_blank" class="no-popup site-btn">Contact Me</a>
+          <a href="/assets/resume.pdf" download="Achour_Ahmed_CV.pdf" class="no-popup site-btn">Download CV</a>
         </div>
       </div>
     </div>
+
   </header>
-  <!-- Header section end -->
+  <!-- Header end -->
 
-  <!-- Hero section start -->
+
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║              HERO SECTION                ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
   <section class="hero-section spad" id="home">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="hero-text reveal reveal-left">
-
-            <h1 class="hero-title">Achour Ahmed</h1>
-
-          </div>
-
-          <div class="hero-tags reveal reveal-left mb-4">
-            <span class="tech-tag"><i class="fa fa-mobile color-accent"></i> Flutter</span>
-            <span class="tech-tag"><i class="fa fa-globe color-cyan"></i> Cloudflare</span>
-            <span class="tech-tag"><i class="fa fa-credit-card color-emerald"></i> Stripe / Payments</span>
-            <span class="tech-tag"><i class="fa fa-code-fork color-accent"></i> Angular</span>
-            <span class="tech-tag"><i class="fa fa-server color-gold"></i> Node.js</span>
-            <span class="tech-tag"><i class="fa fa-fire color-rose"></i> Firebase</span>
-          </div>
-
-          <div class="hero-info-card glass-card reveal reveal-left">
-            <div class="info-grid">
-              <div class="info-item">
-                <span class="info-label">Specialization</span>
-                <span class="info-val">Full-Stack SaaS & Mobile</span>
-              </div>
-              <div class="info-item">
-                <span class="info-label">Email</span>
-                <span class="info-val"><a href="mailto:achourahmed709@gmail.com">achourahmed709&#64;gmail.com</a></span>
-              </div>
-              <div class="info-item">
-                <span class="info-label">WhatsApp</span>
-                <span class="info-val"><a href="https://wa.me/21694190332" target="_blank">+216 94 190 332</a></span>
-              </div>
-              <div class="info-item">
-                <span class="info-label">Availability</span>
-                <span class="info-val highlight-val">Worldwide Remote & Dubai SaaS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6 mt-5 mt-lg-0 text-center">
-          <div class="hero-image-wrapper reveal reveal-right">
-            <div class="avatar-glow"></div>
-            <figure class="hero-image glass-card">
-              <img src="assets/img/ahmeddd.jpeg" alt="Achour Ahmed Profile">
-            </figure>
-            <div class="floating-badge badge-1 glass-card">
-              <div class="badge-icon-wrap bg-accent-soft">
-                <i class="fa fa-rocket color-accent"></i>
-              </div>
-              <div class="text-left">
-                <strong>8+ Live Systems</strong>
-                <small>Production Deployed</small>
-              </div>
-            </div>
-            <div class="floating-badge badge-2 glass-card">
-              <div class="badge-icon-wrap bg-cyan-soft">
-                <i class="fa fa-globe color-cyan"></i>
-              </div>
-              <div class="text-left">
-                <strong>Dubai & Global</strong>
-                <small>Fintech & SaaS Apps</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Hero section end -->
-
-  <!-- Social links section start -->
-  <div class="social-section reveal reveal-up">
-    <div class="container">
-      <div class="social-bar glass-card d-flex align-items-center justify-content-between flex-wrap gap-3">
-        <span class="social-title"><i class="fa fa-share-alt mr-2 color-accent"></i> Connect & Follow Work</span>
-        <div class="social-links d-flex align-items-center gap-3">
-          <a href="https://github.com/ahmedd-achour" target="_blank" title="GitHub" class="social-icon">
-            <i class="fa fa-github"></i>
-            <span class="d-none d-sm-inline">GitHub</span>
-          </a>
-          <a href="https://wa.me/21694190332" target="_blank" title="WhatsApp" class="social-icon whatsapp">
-            <i class="fa fa-whatsapp"></i>
-            <span class="d-none d-sm-inline">WhatsApp</span>
-          </a>
-          <a href="https://myurls.co/achouuurrr/links/667be5447496f7002a8c1bc7/click" target="_blank" title="Facebook" class="social-icon facebook">
-            <i class="fa fa-facebook"></i>
-            <span class="d-none d-sm-inline">Facebook</span>
-          </a>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Social links section end -->
-
-  <!-- Portfolio section start -->
-  <section class="portfolio-section spad" id="portfolio">
-    <div class="container">
-      <div class="section-header text-center reveal reveal-up mb-5">
-        <span class="sub-title">Flagship Projects & Live SaaS Apps</span>
-        <h2 class="section-heading">Featured Engineering Showcase</h2>
-        <p class="section-subtext">Explore recent web & SaaS platforms, mobile ecosystems, Dubai fintech systems, and serverless edge backends.</p>
-      </div>
-
-      <!-- Category Filters -->
-      <div class="filter-wrapper reveal reveal-up mb-5 text-center">
-        <button *ngFor="let cat of categories"
-                class="filter-btn"
-                [class.active]="activeCategory === cat"
-                (click)="setCategory(cat)">
-          {{ cat }}
-        </button>
-      </div>
-
-      <div class="portfolio-warp">
-        <div class="row">
-          <div *ngFor="let project of filteredProjects; let i = index"
-               class="col-lg-4 col-md-6 mb-4 portfolio-card-item"
-               [class.reveal-delay-1]="i % 3 === 0"
-               [class.reveal-delay-2]="i % 3 === 1"
-               [class.reveal-delay-3]="i % 3 === 2">
-            <div class="portfolio-card glass-card h-100 d-flex flex-column" (click)="openProject(project, $event)">
-              <div class="card-img-wrap" [style.backgroundImage]="'url(' + project.image + ')'">
-                <div class="card-overlay">
-                  <span class="btn-preview"><i class="fa fa-eye mr-2"></i> View Details</span>
-                </div>
-                <span *ngIf="project.highlightBadge" class="card-badge">{{ project.highlightBadge }}</span>
-
-                <!-- Quick external link button -->
-                <a *ngIf="project.link && project.link !== '#'"
-                   [href]="project.link"
-                   target="_blank"
-                   (click)="$event.stopPropagation()"
-                   class="quick-live-btn"
-                   title="Visit Live Application">
-                  <i class="fa fa-external-link"></i> Live App
-                </a>
-              </div>
-
-              <div class="card-body-content d-flex flex-column flex-grow-1">
-                <span class="card-category">{{ project.category }}</span>
-                <h3 class="card-title">{{ project.title }}</h3>
-                <p class="card-summary">{{ project.summary }}</p>
-
-                <div class="card-tech-chips mt-auto pt-3">
-                  <span *ngFor="let t of project.tech.slice(0, 3)" class="tech-chip">{{ t }}</span>
-                  <span *ngIf="project.tech.length > 3" class="tech-chip count-chip">+{{ project.tech.length - 3 }}</span>
-                </div>
-
-                <div class="card-footer-actions d-flex align-items-center justify-content-between mt-3 pt-3 border-top-glass">
-                  <span class="link-detail-text">Explore System <i class="fa fa-arrow-right ml-1"></i></span>
-                  <a *ngIf="project.link && project.link !== '#'"
-                     [href]="project.link"
-                     target="_blank"
-                     (click)="$event.stopPropagation()"
-                     class="btn-icon-link"
-                     title="Open live URL">
-                    <i class="fa fa-external-link"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Portfolio section end -->
-
-  <!-- Technical Leverage section start -->
-  <section class="resume-section spad" id="skills">
-    <div class="container">
-      <div class="section-header text-center reveal reveal-up mb-5">
-        <span class="sub-title">Core Engineering Capabilities</span>
-        <h2 class="section-heading">Technical Leverage & Performance</h2>
-      </div>
-
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-3 col-sm-6 mb-4">
-          <div class="fact-card glass-card text-center reveal reveal-up reveal-delay-1">
-            <div class="fact-icon-wrapper mb-3">
-              <i class="fa fa-cubes color-accent"></i>
-            </div>
-            <div class="fact-number color-accent">90%</div>
-            <h4>System Architecture</h4>
-            <p>Cross-Platform Logic, Cloud Edge Scaling & DB Design</p>
-          </div>
-        </div>
+        <div class="col-xl-10 offset-xl-1">
+          <div class="row align-items-center">
 
-        <div class="col-lg-3 col-sm-6 mb-4">
-          <div class="fact-card glass-card text-center reveal reveal-up reveal-delay-2">
-            <div class="fact-icon-wrapper mb-3">
-              <i class="fa fa-mobile color-cyan"></i>
-            </div>
-            <div class="fact-number color-cyan">88%</div>
-            <h4>Flutter & Mobile</h4>
-            <p>iOS & Android Real-Time Logistics & Sports Apps</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-6 mb-4">
-          <div class="fact-card glass-card text-center reveal reveal-up reveal-delay-3">
-            <div class="fact-icon-wrapper mb-3">
-              <i class="fa fa-credit-card color-emerald"></i>
-            </div>
-            <div class="fact-number color-emerald">Fintech</div>
-            <h4>Foreign Payments</h4>
-            <p>Dubai & International Gateway Integrations</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-6 mb-4">
-          <div class="fact-card glass-card text-center reveal reveal-up reveal-delay-4">
-            <div class="fact-icon-wrapper mb-3">
-              <i class="fa fa-cloud color-gold"></i>
-            </div>
-            <div class="fact-number color-gold">8+</div>
-            <h4>Live Systems</h4>
-            <p>Production Apps, Cloudflare Edge APIs & Admin Panels</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work Experience & Education section start -->
-  <section class="resume-section spad" id="resume">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <div class="section-title reveal reveal-up mb-4">
-            <h2 class="timeline-heading"><i class="fa fa-briefcase color-accent mr-2"></i> Work Experience</h2>
-          </div>
-          <div class="timeline-wrapper">
-            <div class="timeline-card glass-card reveal reveal-up">
-              <div class="d-flex align-items-center justify-content-between mb-2">
-                <span class="timeline-date">2024 - Present</span>
-                <span class="timeline-tag">Current Role</span>
+            <!-- Left: text -->
+            <div class="col-lg-6">
+              <div class="hero-text reveal reveal-left">
+                <h2>Achour Ahmed</h2>
+                <p>
+                  Senior Mobile Architect and founder of two live products —
+                  building production-grade Flutter ecosystems and edge infrastructure
+                  that ships, scales, and runs in the real world.
+                </p>
               </div>
-              <h3>Senior Mobile & Full-Stack Architect</h3>
-              <p>
-                Architected and deployed production systems including Flutter mobile apps, Dubai fitness coaching SaaS with foreign payment handling, QR code menu platforms, and serverless Cloudflare Edge microservices.
-              </p>
-            </div>
 
-            <div class="timeline-card glass-card reveal reveal-up reveal-delay-1 mt-4">
-              <div class="d-flex align-items-center justify-content-between mb-2">
-                <span class="timeline-date">2022 - 2024</span>
-                <span class="timeline-tag">Product Engineering</span>
-              </div>
-              <h3>Freelance App & SaaS Engineer</h3>
-              <p>
-                Delivered end-to-end mobile applications with Firebase backends, WebSockets for real-time fleet tracking, custom admin dashboards, and sleek UI/UX for performance across Android & iOS.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="section-title reveal reveal-up mb-4">
-            <h2 class="timeline-heading"><i class="fa fa-graduation-cap color-cyan mr-2"></i> Education & Specialization</h2>
-          </div>
-          <div class="timeline-wrapper">
-            <div class="timeline-card glass-card reveal reveal-up">
-              <div class="d-flex align-items-center justify-content-between mb-2">
-                <span class="timeline-date">Specialized Track</span>
-                <span class="timeline-tag tag-cyan">Engineering</span>
-              </div>
-              <h3>Software & Mobile Engineering</h3>
-              <h4 class="sub-role mb-3">High-Impact Systems Architecture & SaaS Solutions</h4>
-              <p>
-                Focused on cross-platform Flutter mobile architecture, serverless microservices, Stripe API payment gateways for foreign currency transactions, and Cloudflare Pages deployment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Details Modal -->
-  <div class="project-modal" [class.active]="selectedProject" (click)="closeProject()">
-    <div class="modal-content glass-card-modal" (click)="$event.stopPropagation()" *ngIf="selectedProject">
-      <button class="close-btn" (click)="closeProject()" title="Close Modal">
-        <i class="fa fa-times"></i>
-      </button>
-
-      <div class="modal-body-wrapper">
-        <div class="modal-hero-img" [style.backgroundImage]="'url(' + selectedProject.image + ')'">
-          <div class="modal-img-overlay">
-            <span class="category-badge">{{ selectedProject.category }}</span>
-            <h2>{{ selectedProject.title }}</h2>
-          </div>
-        </div>
-
-        <div class="modal-details-content p-4 p-md-5">
-          <div class="row">
-            <div class="col-lg-7">
-              <h3 class="modal-section-title"><i class="fa fa-info-circle color-accent mr-2"></i> Project Overview</h3>
-              <p class="modal-description-text">{{ selectedProject.description }}</p>
-
-              <div *ngIf="selectedProject.keyFeatures && selectedProject.keyFeatures.length > 0" class="modal-features-list mt-4">
-                <h4 class="modal-subheading"><i class="fa fa-check-square-o color-emerald mr-2"></i> Key Highlights & Capabilities</h4>
-                <ul class="feature-bullets">
-                  <li *ngFor="let feat of selectedProject.keyFeatures">
-                    <i class="fa fa-check-circle color-accent mr-2"></i> {{ feat }}
-                  </li>
+              <div class="hero-info reveal reveal-left">
+                <h2>General Info</h2>
+                <ul>
+                  <li><span>Role</span>Mobile &amp; Full-Stack Developer</li>
+                  <li><span>Stack</span>Flutter · Firebase · Angular · Node.js · Cloudflare</li>
+                  <li><span>E-mail</span>achourahmed709&#64;gmail.com</li>
+                  <li><span>Location</span>Tunisia</li>
                 </ul>
               </div>
             </div>
 
-            <div class="col-lg-5 mt-4 mt-lg-0">
-              <div class="modal-sidebar-card glass-card p-4">
-                <h4 class="modal-subheading mb-3"><i class="fa fa-code color-cyan mr-2"></i> Technology Stack</h4>
-                <div class="tech-badge-container d-flex flex-wrap gap-2 mb-4">
-                  <span *ngFor="let tech of selectedProject.tech" class="tech-badge-item">{{ tech }}</span>
-                </div>
+            <!-- Right: Lottie animation + photo -->
+          <div class="col-lg-6 hero-visual-col">
+    <img class="hero-image reveal reveal-right" src="assets/img/ahmeddd.jpeg" alt="Achour Ahmed — Mobile Developer">
 
-                <div class="modal-actions-area">
-                  <a *ngIf="selectedProject.link && selectedProject.link !== '#'"
-                     [href]="selectedProject.link"
-                     target="_blank"
-                     class="site-btn btn-primary-gradient w-100 text-center py-3 d-flex align-items-center justify-content-center gap-2">
-                    <i class="fa fa-rocket"></i> Launch Live Application <i class="fa fa-external-link ml-1"></i>
-                  </a>
-                  <span *ngIf="!selectedProject.link || selectedProject.link === '#'" class="text-muted text-center d-block">
-                    Internal System / Private Architecture
-                  </span>
-                </div>
-              </div>
+    <!-- Optional floating stats badge -->
+
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Hero end -->
+
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║           SOCIAL LINKS                   ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <div class="social-section reveal reveal-up">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <div class="social-link-warp">
+            <div class="social-links">
+              <a href="https://github.com/ahmedd-achour" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+              <a href="https://myurls.co/achouuurrr/links/667be5447496f7002a8c1bc7/click" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://wa.me/21694190332" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
+              <a href="https://www.instagram.com/achourahmedd?igsh=aHdyd2p0cWtqcm16" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
             </div>
+            <h2 class="hidden-md hidden-sm">My Dev Profiles</h2>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Social end -->
 
-  <!-- Footer section start -->
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║           WORK EXPERIENCE                ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <section class="resume-section spad" id="resume">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+
+        <!-- Left: Timeline -->
+        <div class="col-xl-6 offset-xl-1 col-lg-7">
+
+          <div class="section-title reveal reveal-up">
+            <h2>Work Experience</h2>
+          </div>
+
+          <ul class="resume-list">
+            <li class="reveal reveal-up">
+              <h2>2024 – Now</h2>
+              <h3>Independent Full-Stack Developer</h3>
+              <h4>Mobile &amp; Backend Engineer</h4>
+              <p>
+                Built and deployed multiple production apps using Flutter &amp; Firebase,
+                integrated Cloudflare for performance optimization, API security, and global scaling.
+                Focused on clean architecture, real-time systems, and monetized mobile apps.
+              </p>
+            </li>
+
+            <li class="reveal reveal-up">
+              <h2>2022 – 2024</h2>
+              <h3>Freelance Developer</h3>
+              <h4>Mobile App Developer</h4>
+              <p>
+                Delivered mobile applications with Firebase backend, authentication systems,
+                and optimized UI/UX for performance and scalability across Android &amp; iOS.
+              </p>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Right: Lottie Website Character -->
+        <div class="col-xl-4 col-lg-5 lottie-aside-col">
+          <div id="lottie-website-char" class="lottie-aside-wrapper reveal reveal-right"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Work Experience end -->
+
+ <!--  ╔══════════════════════════════════════════╗ -->
+  <!-- ║              EDUCATION                   ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+
+    <section class="resume-section spad" id="resume">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+
+        <!-- Left: Timeline -->
+        <div class="col-xl-6 offset-xl-1 col-lg-7">
+
+          <div class="section-title reveal reveal-up">
+            <h2>Education</h2>
+          </div>
+
+           <ul class="resume-list">
+            <li class="reveal reveal-up">
+              <h2>2024</h2>
+              <h3>Mobile Engineer</h3>
+              <h4>Software Engineering · Self-Driven / Practical Track</h4>
+              <p>
+                Focused on Flutter, Firebase, API design, system architecture,
+                and deployment with modern DevOps tools including GitHub &amp; Cloudflare.
+              </p>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Right: Lottie Website Character -->
+        <div class="col-xl-4 col-lg-5 lottie-aside-col">
+                              <div id="lottie-hero" class="lottie-hero-wrapper reveal reveal-right"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Work Experience end -->
+
+
+
+=
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║         TECHNICAL LEVERAGE               ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <section class="resume-section spad" id="extra-skills">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-7 offset-xl-3">
+
+          <div class="section-title reveal reveal-up">
+            <h2>Technical Leverage</h2>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <div class="fact-box trans">
+                <div class="fact-content">
+                  <div class="circle-progress">
+                    <div id="progress3" class="prog-circle" data-value="0.97"></div>
+                    <div class="progress-info">
+                      <h2>97%</h2>
+                    </div>
+                    <div class="prog-title">
+                      <h3>System Architecture</h3>
+                      <p>Cross-platform logic &amp; Cloud scaling.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-6 text-center">
+              <div class="fact-box trans">
+                <div class="fact-content">
+                  <div class="circle-progress">
+                    <div id="progress4" class="prog-circle" data-value="0.93"></div>
+                    <div class="progress-info">
+                      <h2>93%</h2>
+                    </div>
+                    <div class="prog-title">
+                      <h3>Angular Stack</h3>
+                      <p>Enterprise web &amp; State management (RxJS).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="fact-box">
+                <div class="fact-content">
+                  <img src="assets/img/icon/1-w.png" alt="Experience Icon">
+                  <h2>3+</h2>
+                  <p>Years of Engineering</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="fact-box">
+                <div class="fact-content">
+                  <img src="assets/img/icon/2-w.png" alt="Products Icon">
+                  <h2>4</h2>
+                  <p>Live Market Platforms</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Technical Leverage end -->
+
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║          MOBILE PROJECTS                 ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <section class="portfolio-section spad pb-0" id="portfolio">
+    <div class="container-fluid">
+      <div class="row portfolio-header-row">
+        <div class="col-xl-4 col-md-8 offset-xl-2">
+          <div class="section-title reveal reveal-up">
+            <h2>Mobile Projects</h2>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-right reveal reveal-up">
+          <a href="https://github.com/ahmedd-achour" target="_blank" class="site-btn mb-5">See GitHub</a>
+        </div>
+      </div>
+
+      <div class="portfolio-warp">
+        <div class="row">
+
+          <!-- Project 0: Shnell Client -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up reveal-delay-1">
+            <div class="portfolio-item-v2" (click)="openProject(projects[0], $event)">
+              <div class="port-img set-bg" [attr.data-setbg]="projects[0].image">
+                <div class="port-overlay"><span>View Project</span></div>
+              </div>
+              <div class="port-text">
+                <p>{{ projects[0].category }}</p>
+                <h3>{{ projects[0].title }}</h3>
+                <p class="summary">{{ projects[0].summary }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 1: Shnell Driver -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up reveal-delay-2">
+            <div class="portfolio-item-v2" (click)="openProject(projects[1], $event)">
+              <div class="port-img set-bg" [attr.data-setbg]="projects[1].image">
+                <div class="port-overlay"><span>View Project</span></div>
+              </div>
+              <div class="port-text">
+                <p>{{ projects[1].category }}</p>
+                <h3>{{ projects[1].title }}</h3>
+                <p class="summary">{{ projects[1].summary }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: FawaNews -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up reveal-delay-3">
+            <div class="portfolio-item-v2" (click)="openProject(projects[2], $event)">
+              <div class="port-img set-bg" [attr.data-setbg]="projects[2].image">
+                <div class="port-overlay"><span>View Project</span></div>
+              </div>
+              <div class="port-text">
+                <p>{{ projects[2].category }}</p>
+                <h3>{{ projects[2].title }}</h3>
+                <p class="summary">{{ projects[2].summary }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Mobile Projects end -->
+
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║            WEB & APIs                    ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <section class="portfolio-section spad">
+    <div class="container-fluid">
+
+      <!-- Web section hero banner -->
+      <div class="row web-section-banner align-items-center">
+        <div class="col-xl-5 offset-xl-1 col-lg-6">
+          <div class="section-title reveal reveal-up">
+            <h2>Web &amp; APIs</h2>
+          </div>
+          <p class="web-section-subtitle reveal reveal-up">
+            Dashboards, portfolios, and AI-powered edge APIs — shipped and live.
+          </p>
+          <a href="https://github.com/ahmedd-achour" target="_blank" class="site-btn mb-5 reveal reveal-up">See GitHub</a>
+        </div>
+        <div class="col-xl-4 col-lg-5 offset-xl-1">
+          <div id="lottie-biz-woman" class="lottie-biz-wrapper reveal reveal-right"></div>
+        </div>
+      </div>
+
+      <div class="row portfolio-header-row" style="display:none"></div>
+
+      <div class="portfolio-warp">
+        <div class="row">
+
+          <!-- Project 3: Shnell Dashboard -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up reveal-delay-1">
+            <div class="portfolio-item-v2" (click)="openProject(projects[3], $event)">
+              <div class="port-img set-bg" [attr.data-setbg]="projects[3].image">
+                <div class="port-overlay"><span>View Project</span></div>
+              </div>
+              <div class="port-text">
+                <p>{{ projects[3].category }}</p>
+                <h3>{{ projects[3].title }}</h3>
+                <p class="summary">{{ projects[3].summary }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Portfolio (this site) -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up reveal-delay-2">
+            <div class="portfolio-item-v2" (click)="openProject(projects[4], $event)">
+              <div class="port-img set-bg" [attr.data-setbg]="projects[4].image">
+                <div class="port-overlay"><span>View Project</span></div>
+              </div>
+              <div class="port-text">
+                <p>{{ projects[4].category }}</p>
+                <h3>{{ projects[4].title }}</h3>
+                <p class="summary">{{ projects[4].summary }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Coach Aymen Othmani -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up reveal-delay-3">
+            <div class="portfolio-item-v2" (click)="openProject(projects[5], $event)">
+              <div class="port-img set-bg" [attr.data-setbg]="projects[5].image">
+                <div class="port-overlay"><span>View Project</span></div>
+              </div>
+              <div class="port-text">
+                <p>{{ projects[5].category }}</p>
+                <h3>{{ projects[5].title }}</h3>
+                <p class="summary">{{ projects[5].summary }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Cloudflare Chatbot -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up reveal-delay-4">
+            <div class="portfolio-item-v2" (click)="openProject(projects[6], $event)">
+              <div class="port-img set-bg" [attr.data-setbg]="projects[6].image">
+                <div class="port-overlay"><span>View Project</span></div>
+              </div>
+              <div class="port-text">
+                <p>{{ projects[6].category }}</p>
+                <h3>{{ projects[6].title }}</h3>
+                <p class="summary">{{ projects[6].summary }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║              FOOTER                      ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
   <footer class="footer-section">
     <div class="container text-center">
-      <div class="footer-content">
-        <p class="copyright">
-          © 2026 Achour Ahmed • Senior Mobile & Full-Stack Architect
-        </p>
+      <div class="copyright">
+        &copy; Achour Ahmed — Mobile &amp; Full Stack Developer
       </div>
     </div>
   </footer>
-  <!-- Footer section end -->
+  <!-- Footer end -->
 
+</div><!-- /.home-two-style -->
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║           PROJECT MODAL                  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<div class="project-modal" [class.active]="selectedProject" (click)="closeProject()">
+  <div class="modal-content" *ngIf="selectedProject" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeProject()">&times;</button>
+    <div class="modal-inner">
+      <!-- Image -->
+      <div class="modal-image-wrap">
+        <img  [src]="selectedProject.image" alt="{{ selectedProject.title }}" class="modal-image">
+      </div>
+      <!-- Details -->
+      <div class="modal-details">
+        <span class="category">{{ selectedProject.category }}</span>
+        <h2>{{ selectedProject.title }}</h2>
+        <div class="modal-description">
+          <p>{{ selectedProject.description }}</p>
+        </div>
+        <div class="tech-stack">
+          <h4>Tech Stack</h4>
+          <ul>
+            <li *ngFor="let tech of selectedProject.tech">{{ tech }}</li>
+          </ul>
+        </div>
+        <a [href]="selectedProject.link" target="_blank" class="modal-cta">
+          View Live Project →
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
-
