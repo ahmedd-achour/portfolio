@@ -111,8 +111,9 @@
   background-color: #ede9e0;
 }
 .hero-image {
-  width: 60%;
+  width: 100%;
   /* Gives the container a defined shape (width-to-height ratio) */
+  aspect-ratio: 1 / 1;
 
   /* Curve and border styles */
   border-radius: 32px 32px 140px 32px;
@@ -124,6 +125,14 @@
   position: relative;
 }
 
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  /* Forces the image to fill the entire container without stretching */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 .hero-badge {
   position: absolute;
   bottom: 0;
@@ -462,28 +471,6 @@
     height: 200px;
   }
 
-  .port-text {
-    padding: 16px 16px 18px;
-  }
-
-  .port-text h3 {
-    font-size: 16px;
-  }
-
-  .port-text .summary {
-    font-size: 13px;
-  }
-
-  /* Web section banner text */
-  .web-section-subtitle {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-
-  .web-section-banner {
-    margin-bottom: 24px;
-  }
-
   /* Modal */
   .project-modal {
     padding: 12px;
@@ -509,11 +496,7 @@
   }
 
   .modal-details h2 {
-    font-size: 22px;
-  }
-
-  .modal-description p {
-    font-size: 14px;
+    font-size: 24px;
   }
 
   /* Lottie */
