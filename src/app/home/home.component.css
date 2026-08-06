@@ -111,9 +111,8 @@
   background-color: #ede9e0;
 }
 .hero-image {
-  width: 100%;
+  width: 60%;
   /* Gives the container a defined shape (width-to-height ratio) */
-  aspect-ratio: 1 / 1;
 
   /* Curve and border styles */
   border-radius: 32px 32px 140px 32px;
@@ -125,14 +124,6 @@
   position: relative;
 }
 
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  /* Forces the image to fill the entire container without stretching */
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
 .hero-badge {
   position: absolute;
   bottom: 0;
