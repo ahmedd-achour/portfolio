@@ -426,7 +426,6 @@
       </div>
     </div>
   </section>
-  <!-- Web & APIs end -->
 
 
   <!-- ╔══════════════════════════════════════════╗ -->
@@ -453,7 +452,7 @@
     <div class="modal-inner">
       <!-- Image -->
       <div class="modal-image-wrap">
-        <div class="modal-image set-bg" [attr.data-setbg]="selectedProject.image"></div>
+        <img  [src]="selectedProject.image" alt="{{ selectedProject.title }}" class="modal-image">
       </div>
       <!-- Details -->
       <div class="modal-details">

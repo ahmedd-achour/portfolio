@@ -63,7 +63,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       title: 'Shnell Dashboard',
       category: 'Web · Admin Panel',
       image: 'assets/img/dashboard.png',
-      link: 'https://github.com/ahmedd-achour',
+      link: 'https://shnell.tn',
       summary: 'Internal admin dashboard for the Shnell logistics platform.',
       description: 'A full-featured admin panel that gives the Shnell operations team real-time visibility into deliveries, drivers, users, and revenue. Built with Angular and Firebase, it offers live data streams, role-based access, and actionable analytics.',
       tech: ['Angular', 'Firebase', 'RxJS', 'Chart.js']
@@ -80,7 +80,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     {
       title: 'Coach Aymen Othmani',
       category: 'Web · Cloudflare Pages',
-      image: 'assets/img/chatbot.png',
+      image: 'assets/img/face.png',
       link: 'https://coach-aymen-othmani.pages.dev',
       summary: 'Professional coaching website deployed on Cloudflare Pages.',
       description: 'A sleek and performant coaching website for Aymen Othmani, hosted on Cloudflare Pages for blazing-fast global delivery. Features a modern design, service showcases, and clear calls-to-action for client engagement.',
