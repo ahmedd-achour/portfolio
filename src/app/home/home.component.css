@@ -1,194 +1,418 @@
-/* Portfolio V2 - Cleaner Grid */
+/* ==============================================
+   HOME COMPONENT — Premium Overhaul
+   Soft palette · Premium typography · Mobile-first
+   No horizontal scroll ever
+================================================ */
+
+/* ─── Lottie Hero ─────────────────────────── */
+
+/* ─── Lottie Aside (Work Experience) ─────── */
+.lottie-aside-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.lottie-aside-wrapper {
+  width: 100%;
+  max-width: 360px;
+  height: 380px;
+  pointer-events: none;
+  margin: 0 auto;
+  opacity: 0.92;
+  animation: lottie-float 5s ease-in-out infinite;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+}
+
+/* ─── Lottie Business Woman (Web & APIs) ─── */
+.web-section-banner {
+  margin-bottom: 48px;
+  padding: 32px 0 0;
+}
+
+.web-section-subtitle {
+  font-size: 15.5px;
+  color: #9ca3af;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.lottie-biz-wrapper {
+  width: 100%;
+  max-width: 400px;
+  height: 360px;
+  pointer-events: none;
+  margin: 0 auto;
+  opacity: 0.93;
+  animation: lottie-float 6s ease-in-out infinite;
+  animation-delay: 1.2s;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+}
+
+@keyframes lottie-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+
+.hero-visual-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.lottie-hero-wrapper {
+  width: 100%;
+  max-width: 480px;
+  height: 340px;
+  pointer-events: none;
+  margin: 0 auto;
+  opacity: 0.88;
+  /* subtle fade at bottom so lottie blends into photo */
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0));
+}
+
+/* ─── Portfolio Header Row ────────────────── */
+.portfolio-header-row {
+  padding: 0 8px;
+}
+
+/* ─── Portfolio Card V2 ───────────────────── */
 .portfolio-item-v2 {
-    margin-bottom: 50px;
-    cursor: pointer;
-    background: #fff;
-    transition: all 0.4s ease;
-    border-radius: 8px;
-    overflow: hidden;
+  margin-bottom: 48px;
+  cursor: pointer;
+  background: #fff;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+
+.portfolio-item-v2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 64px rgba(26, 26, 46, 0.12);
 }
 
 .port-img {
-    height: 300px;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  height: 240px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ede9e0;
+}
+.hero-image {
+  width: 100%;
+  /* Gives the container a defined shape (width-to-height ratio) */
+  aspect-ratio: 1 / 1;
+
+  /* Curve and border styles */
+  border-radius: 32px 32px 140px 32px;
+  border: 8px solid #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+  /* Clips the image strictly inside the border radius */
+  overflow: hidden;
+  position: relative;
 }
 
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  /* Forces the image to fill the entire container without stretching */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.hero-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #161412;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-count {
+  color: #fca311;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.badge-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+
+
 .port-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: rgba(64, 66, 74, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.4s;
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
 .port-overlay span {
-    color: #fff;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    border: 1px solid #fff;
-    padding: 10px 20px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: 1.5px solid rgba(201, 169, 110, 0.7);
+  padding: 11px 24px;
+  border-radius: 3px;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.port-overlay span:hover {
+  background: rgba(201, 169, 110, 0.25);
 }
 
 .portfolio-item-v2:hover .port-overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
 .port-text {
-    padding: 25px 0;
+  padding: 22px 22px 24px;
+}
+
+.port-text > p:first-child {
+  font-size: 10.5px;
+  color: #c9a96e;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-style: normal;
 }
 
 .port-text h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-    transition: all 0.3s;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #1a1a2e;
+  transition: color 0.25s;
+  font-style: normal;
+  letter-spacing: -0.01em;
 }
 
-.port-text p {
-    font-size: 14px;
-    color: #40424a;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    font-weight: 600;
+.portfolio-item-v2:hover .port-text h3 {
+  color: #c9a96e;
 }
 
 .port-text .summary {
-    font-size: 15px;
-    color: #838488;
-    line-height: 1.6;
+  font-size: 13.5px;
+  color: #9ca3af;
+  line-height: 1.6;
+  font-style: normal;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
-/* Modal Styling */
+/* ─── Project Modal ───────────────────────── */
 .project-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.88);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  overflow-y: auto;
 }
 
 .project-modal.active {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
-    background: #fff;
-    max-width: 1100px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    border-radius: 4px;
+  background: #fdfcfa;
+  max-width: 960px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 48px 120px rgba(0,0,0,0.35);
+  margin: auto;
 }
 
-.close-btn {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 35px;
-    background: none;
-    border: none;
-    color: #40424a;
-    z-index: 10;
-    cursor: pointer;
+/* Flex inner layout */
+.modal-inner {
+  display: flex;
+  flex-direction: row;
+  min-height: 420px;
+}
+
+.modal-image-wrap {
+  flex: 0 0 42%;
+  min-height: 420px;
 }
 
 .modal-image {
-    height: 100%;
-    min-height: 400px;
-    background-size: cover;
-    background-position: center;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px 0 0 12px;
+}
+
+
+.close-btn {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  font-size: 30px;
+  background: rgba(250, 249, 247, 0.9);
+  border: none;
+  color: #6b7280;
+  z-index: 10;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #1a1a2e;
+  background: #fff;
 }
 
 .modal-details {
-    padding: 60px;
+  flex: 1;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .modal-details .category {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #838488;
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #c9a96e;
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .modal-details h2 {
-    font-size: 45px;
-    margin-bottom: 30px;
+  font-size: clamp(24px, 4vw, 38px);
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .modal-description {
-    margin-bottom: 40px;
+  margin-bottom: 32px;
+}
+
+.modal-description p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #6b7280;
 }
 
 .tech-stack h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-bottom: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #1a1a2e;
+  font-style: normal;
 }
 
 .tech-stack ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 32px;
 }
 
 .tech-stack ul li {
-    background: #f2f7f8;
-    padding: 6px 15px;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 4px;
+  background: #f5f0e8;
+  color: #6b7280;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 100px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: 1px solid rgba(201, 169, 110, 0.22);
 }
 
-@media (max-width: 991px) {
-    .modal-image {
-        height: 300px;
-    }
-    .modal-details {
-        padding: 30px;
-    }
+.modal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 28px;
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.2s;
+  align-self: flex-start;
 }
 
-/* Animations from previous version */
+.modal-cta:hover {
+  background: #c9a96e;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ─── Reveal Animations ───────────────────── */
 .reveal {
-    opacity: 0;
-    transition: all 0.8s ease-out;
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.reveal-up { transform: translateY(30px); }
-.reveal-left { transform: translateX(-30px); }
-.reveal-right { transform: translateX(30px); }
+.reveal-up    { transform: translateY(28px); }
+.reveal-left  { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+
 .reveal.active {
-    opacity: 1;
-    transform: translate(0, 0);
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .reveal-delay-1 { transition-delay: 0.1s; }
@@ -196,6 +420,113 @@
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-.hero-text h2 { transition-delay: 0.1s; }
-.hero-text p { transition-delay: 0.3s; }
-.hero-info { transition-delay: 0.5s; }
+.hero-text h2 { transition-delay: 0.05s; }
+.hero-text p  { transition-delay: 0.2s; }
+.hero-info    { transition-delay: 0.35s; }
+
+/* ─── Responsive ──────────────────────────── */
+@media (max-width: 991px) {
+  .lottie-hero-wrapper {
+    max-width: 360px;
+    height: 260px;
+  }
+
+  .lottie-aside-wrapper {
+    max-width: 280px;
+    height: 280px;
+  }
+
+  .lottie-biz-wrapper {
+    max-width: 300px;
+    height: 280px;
+  }
+
+  .modal-inner {
+    flex-direction: column;
+  }
+
+  .modal-image-wrap {
+    flex: none;
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .modal-image {
+    min-height: 240px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .modal-details {
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Portfolio cards */
+  .portfolio-item-v2 {
+    margin-bottom: 24px;
+  }
+
+  .port-img {
+    height: 200px;
+  }
+
+  /* Modal */
+  .project-modal {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .modal-content {
+    max-height: none;
+    border-radius: 10px;
+  }
+
+  .modal-image-wrap {
+    min-height: 200px;
+    height: 200px;
+  }
+
+  .modal-image {
+    min-height: 200px;
+  }
+
+  .modal-details {
+    padding: 24px 20px 32px;
+  }
+
+  .modal-details h2 {
+    font-size: 24px;
+  }
+
+  /* Lottie */
+  .lottie-hero-wrapper {
+    max-width: 280px;
+    height: 200px;
+  }
+
+  /* Hide aside Lotties on mobile — they would crowd the layout */
+  .lottie-aside-col,
+  .lottie-biz-wrapper {
+    display: none;
+  }
+
+  .portfolio-header-row {
+    padding: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .port-img {
+    height: 180px;
+  }
+
+  .modal-image-wrap {
+    min-height: 180px;
+    height: 180px;
+  }
+
+  .modal-image {
+    min-height: 180px;
+  }
+}

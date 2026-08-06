@@ -1,22 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-html {
-    scroll-behavior: smooth;
+/* Global Angular styles — all overrides go into src/css/style.css */
+
+/* Iron-clad overflow kill */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  scroll-behavior: smooth;
 }
 
+/* Smooth button transitions (used globally) */
 .site-btn {
-    transition: all 0.3s ease;
-    cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
-.site-btn:hover {
-    background-color: #40424a !important;
-    color: #fff !important;
-}
-
+/* Social link lift */
 .social-links a {
-    transition: all 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }

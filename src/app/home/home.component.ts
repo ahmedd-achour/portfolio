@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, Inject, PLATFORM_ID, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 
@@ -21,8 +21,16 @@ interface Project {
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('lottieContainer', { static: false }) lottieContainer!: ElementRef;
+
+  private lottieAnimation: any = null;
+  private lottieWebsiteChar: any = null;
+  private lottieBizWoman: any = null;
+
+
   projects: Project[] = [
+    // ── Mobile Projects ──────────────────────────────────
     {
       title: 'Logistics Client App',
       category: 'Mobile + Firebase',
@@ -50,6 +58,34 @@ export class HomeComponent implements AfterViewInit {
       description: 'FawaNews delivers real-time match results, fixtures, and key events. Designed for speed and simplicity, it keeps users updated with live football action and match statistics in an optimized mobile interface.',
       tech: ['Flutter', 'Node.js', 'MongoDB', 'Push Notifications']
     },
+    // ── Web & APIs ────────────────────────────────────────
+    {
+      title: 'Shnell Dashboard',
+      category: 'Web · Admin Panel',
+      image: 'assets/img/dashboard.png',
+      link: 'https://github.com/ahmedd-achour',
+      summary: 'Internal admin dashboard for the Shnell logistics platform.',
+      description: 'A full-featured admin panel that gives the Shnell operations team real-time visibility into deliveries, drivers, users, and revenue. Built with Angular and Firebase, it offers live data streams, role-based access, and actionable analytics.',
+      tech: ['Angular', 'Firebase', 'RxJS', 'Chart.js']
+    },
+    {
+      title: 'Developer Portfolio',
+      category: 'Web · Angular',
+      image: 'assets/img/home-4-bg.png',
+      link: 'https://ahmedd-achour.github.io/portfolio',
+      summary: 'The portfolio you are currently viewing — built with Angular.',
+      description: 'A premium single-page portfolio showcasing projects, skills, and work experience. Built with Angular 17, featuring Lottie animations, scroll-reveal effects, a project modal system, and fully responsive mobile-first layout with soft gold accents.',
+      tech: ['Angular 17', 'TypeScript', 'Lottie', 'CSS Custom Properties']
+    },
+    {
+      title: 'Coach Aymen Othmani',
+      category: 'Web · Cloudflare Pages',
+      image: 'assets/img/chatbot.png',
+      link: 'https://coach-aymen-othmani.pages.dev',
+      summary: 'Professional coaching website deployed on Cloudflare Pages.',
+      description: 'A sleek and performant coaching website for Aymen Othmani, hosted on Cloudflare Pages for blazing-fast global delivery. Features a modern design, service showcases, and clear calls-to-action for client engagement.',
+      tech: ['Angular', 'Cloudflare Pages', 'CSS', 'Responsive Design']
+    },
     {
       title: 'Cloudflare Chatbot API',
       category: 'Serverless AI & Edge Computing',
@@ -71,7 +107,16 @@ export class HomeComponent implements AfterViewInit {
       this.initBg();
       this.initMagnificPopup();
       this.hidePreloader();
+      this.initLottie();
+      this.initLottieWebsiteChar();
+      this.initLottieBizWoman();
     }
+  }
+
+  ngOnDestroy() {
+    if (this.lottieAnimation) this.lottieAnimation.destroy();
+    if (this.lottieWebsiteChar) this.lottieWebsiteChar.destroy();
+    if (this.lottieBizWoman) this.lottieBizWoman.destroy();
   }
 
   openProject(project: Project, event: Event) {
@@ -86,8 +131,8 @@ export class HomeComponent implements AfterViewInit {
   }
 
   private hidePreloader() {
-    $(".loader").fadeOut();
-    $("#preloder").delay(400).fadeOut("slow");
+    $('.loader').fadeOut();
+    $('#preloder').delay(400).fadeOut('slow');
   }
 
   private initBg() {
@@ -124,5 +169,63 @@ export class HomeComponent implements AfterViewInit {
     document.querySelectorAll('.reveal').forEach((el) => {
       observer.observe(el);
     });
+  }
+
+  private async initLottie() {
+    try {
+      const lottie = await import('lottie-web');
+      const response = await fetch('assets/Global Network.json');
+      const animationData = await response.json();
+
+      const container = document.getElementById('lottie-hero');
+      if (!container) return;
+
+      this.lottieAnimation = lottie.default.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+      });
+    } catch (e) {
+      console.warn('Lottie failed to load:', e);
+    }
+  }
+  private async initLottieWebsiteChar() {
+    try {
+      const lottie = await import('lottie-web');
+      const response = await fetch('assets/Website character animation.json');
+      const animationData = await response.json();
+      const container = document.getElementById('lottie-website-char');
+      if (!container) return;
+      this.lottieWebsiteChar = lottie.default.loadAnimation({
+        container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData,
+      });
+    } catch (e) {
+      console.warn('Website char Lottie failed:', e);
+    }
+  }
+
+  private async initLottieBizWoman() {
+    try {
+      const lottie = await import('lottie-web');
+      const response = await fetch('assets/Business woman.json');
+      const animationData = await response.json();
+      const container = document.getElementById('lottie-biz-woman');
+      if (!container) return;
+      this.lottieBizWoman = lottie.default.loadAnimation({
+        container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData,
+      });
+    } catch (e) {
+      console.warn('Business woman Lottie failed:', e);
+    }
   }
 }
