@@ -462,6 +462,28 @@
     height: 200px;
   }
 
+  .port-text {
+    padding: 16px 16px 18px;
+  }
+
+  .port-text h3 {
+    font-size: 16px;
+  }
+
+  .port-text .summary {
+    font-size: 13px;
+  }
+
+  /* Web section banner text */
+  .web-section-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .web-section-banner {
+    margin-bottom: 24px;
+  }
+
   /* Modal */
   .project-modal {
     padding: 12px;
@@ -487,7 +509,11 @@
   }
 
   .modal-details h2 {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  .modal-description p {
+    font-size: 14px;
   }
 
   /* Lottie */

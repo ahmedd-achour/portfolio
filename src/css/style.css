@@ -738,7 +738,7 @@ textarea:focus {
   }
 
   .hero-text h2 {
-    font-size: clamp(44px, 13vw, 76px);
+    font-size: clamp(32px, 11vw, 60px);
     margin-bottom: 18px;
   }
 
@@ -785,7 +785,7 @@ textarea:focus {
   }
 
   .resume-list h2 {
-    font-size: clamp(32px, 10vw, 52px);
+    font-size: clamp(24px, 9vw, 44px);
   }
 
   /* Section title */
@@ -810,19 +810,43 @@ textarea:focus {
   }
 }
 
-/* Small mobile */
+
+/* Small mobile ≤479px */
 @media only screen and (max-width: 479px) {
   .hero-text h2 {
-    font-size: clamp(38px, 12vw, 64px);
+    font-size: clamp(28px, 10vw, 48px);
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .header-section {
+    padding: 12px 16px;
   }
 
   .header-buttons {
     flex-direction: row;
+    gap: 6px;
   }
 
   .header-buttons .site-btn {
-    font-size: 9.5px;
-    padding: 9px 12px;
+    font-size: 9px;
+    padding: 8px 10px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .site-logo h2 {
+    font-size: 16px;
+  }
+
+  .site-logo p {
+    font-size: 10.5px;
   }
 
   .social-section .social-links a {
@@ -830,10 +854,50 @@ textarea:focus {
   }
 
   .resume-list h2 {
-    font-size: 38px;
+    font-size: clamp(22px, 8vw, 38px);
+  }
+
+  .resume-list h3 {
+    font-size: 17px;
+  }
+
+  .resume-list {
+    margin-left: 0;
+    padding-left: 20px;
+  }
+
+  .resume-list li::after {
+    left: -30px;
   }
 
   .hero-image img {
-    max-width: 200px;
+    max-width: 180px;
+  }
+
+  .spad {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .section-title h2 {
+    font-size: clamp(26px, 8vw, 42px);
+    margin-bottom: 36px;
+  }
+
+  .hero-info ul li {
+    font-size: 14px;
+    gap: 4px;
+  }
+
+  .hero-info ul li span {
+    font-size: 9px;
+  }
+
+  .fact-box {
+    height: 220px;
+  }
+
+  .fact-box .fact-content h2 {
+    font-size: 40px;
   }
 }
