@@ -1,6 +1,6 @@
 """Generate the 4096x2304 Google Play developer page header image.
 
-Usage: python3 scripts/generate-header.py src/assets/img/brand/play-header-4096x2304.png
+Usage: python3 scripts/generate-header.py src/assets/img/brand/play-header-4096x2304.jpg
 """
 import sys
 
@@ -278,7 +278,8 @@ def main(out):
     for i, t in enumerate(["Flutter", "Firebase", "Angular", "Node.js"]):
         x = chip(img, d, x, 1630, t, chip_f, filled=(i == 0))
 
-    img.convert("RGB").save(out, optimize=True)
+    # JPEG keeps the file under Google Play's 1 MB upload limit
+    img.convert("RGB").save(out, quality=95, subsampling=0, optimize=True)
 
 
 if __name__ == "__main__":
