@@ -43,3 +43,6 @@ Thumbs.db
 
 # local AI server logs
 ai-server/logs/
+
+# Wrangler local dev output
+.wrangler/
