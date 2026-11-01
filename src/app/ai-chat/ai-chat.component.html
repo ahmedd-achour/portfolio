@@ -1,0 +1,64 @@
+<div class="ai-card reveal reveal-up">
+
+  <div class="ai-disclaimer">
+    <i class="fa-solid fa-microchip"></i>
+    <p>
+      <b>100% locally built and hosted.</b>
+      This assistant is an open-source model running on Ahmed's own laptop hardware, not a cloud AI service.
+      Its answers are not comparable to giants like Gemini, ChatGPT or Claude, but it shows Ahmed's hands-on
+      skills in AI and automation: model serving, a secure API proxy and a Cloudflare tunnel, all built by him.
+    </p>
+  </div>
+
+  <div class="ai-head">
+    <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
+    <div class="ai-title">
+      <h2>Ask my AI</h2>
+      <p>Questions about Ahmed's skills, projects or experience, in English or French.</p>
+    </div>
+    <span class="ai-status" [ngClass]="status">
+      <span class="dot"></span>
+      {{ status === 'online' ? 'Online' : status === 'offline' ? 'Offline' : 'Connecting…' }}
+    </span>
+  </div>
+
+  <div class="ai-thread" #thread>
+    <div class="ai-empty" *ngIf="!messages.length">
+      <p *ngIf="status !== 'offline'">Hi! I'm Ahmed's AI assistant. Pick a question or type your own.</p>
+      <p *ngIf="status === 'offline'">
+        The assistant is offline right now because Ahmed's PC is switched off.
+        <a href="https://wa.me/21694190332" target="_blank">Message Ahmed on WhatsApp</a>
+        or <button type="button" class="link-btn" (click)="checkHealth()">try again</button>.
+      </p>
+      <div class="ai-suggestions">
+        <button type="button" *ngFor="let q of suggestions" (click)="ask(q)" [disabled]="busy || status === 'offline'">{{ q }}</button>
+      </div>
+    </div>
+
+    <div class="ai-msg" *ngFor="let m of messages; let last = last" [ngClass]="m.role">
+      <div class="bubble">
+        <span *ngIf="m.content">{{ m.content }}</span>
+        <span class="typing" *ngIf="!m.content && last && busy"><i></i><i></i><i></i></span>
+      </div>
+    </div>
+  </div>
+
+  <form class="ai-input" (ngSubmit)="send()">
+    <textarea
+      name="draft"
+      rows="1"
+      [(ngModel)]="draft"
+      (keydown)="onKey($event)"
+      maxlength="500"
+      [disabled]="status === 'offline'"
+      placeholder="Ask about Ahmed's projects, stack or availability…"></textarea>
+    <button type="submit" class="send" [disabled]="busy || !draft.trim() || status === 'offline'" aria-label="Send">
+      <i class="fa fa-paper-plane"></i>
+    </button>
+  </form>
+
+  <div class="ai-foot">
+    <span>{{ model ? 'Model: ' + model + ' · ' : '' }}Ollama · Node.js proxy · Cloudflare Tunnel</span>
+    <button type="button" class="link-btn" *ngIf="messages.length" (click)="reset()">New chat</button>
+  </div>
+</div>
