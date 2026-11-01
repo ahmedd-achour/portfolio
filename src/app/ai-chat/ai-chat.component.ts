@@ -2,10 +2,21 @@ import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-// Public URL of the local proxy (ai-server/), exposed through a Cloudflare Tunnel.
-// When the site itself runs on localhost, talk to the proxy directly.
-const PUBLIC_AI_ENDPOINT = 'https://ai.shnell.tn';
+// The local proxy (ai-server/) is exposed through a Cloudflare quick tunnel whose address
+// changes on every restart. ai-server/start.ps1 publishes the current address in a public
+// gist file, which the site looks up here. On localhost, talk to the proxy directly.
+const GITHUB_USER = 'ahmedd-achour';
+const ENDPOINT_FILE = 'portfolio-ai-endpoint.json';
 const LOCAL_AI_ENDPOINT = 'http://127.0.0.1:8787';
+
+async function findPublicEndpoint(): Promise<string> {
+  const gists = await (await fetch(`https://api.github.com/users/${GITHUB_USER}/gists?per_page=50`, { signal: AbortSignal.timeout(6000) })).json();
+  const file = gists.find((g: any) => g.files?.[ENDPOINT_FILE])?.files[ENDPOINT_FILE];
+  if (!file) throw new Error('no endpoint published');
+  // raw_url is pinned to the latest revision, so it is never a stale cached copy.
+  const { url } = await (await fetch(file.raw_url, { signal: AbortSignal.timeout(6000) })).json();
+  return url;
+}
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -29,7 +40,7 @@ export class AiChatComponent implements OnInit {
   messages: ChatMessage[] = [];
   draft = '';
   busy = false;
-  endpoint = PUBLIC_AI_ENDPOINT;
+  endpoint = '';
 
   suggestions = [
     'Who is Ahmed and what does he build?',
@@ -49,12 +60,15 @@ export class AiChatComponent implements OnInit {
   async checkHealth() {
     this.status = 'checking';
     try {
+      if (!this.endpoint) this.endpoint = await findPublicEndpoint();
       const res = await fetch(`${this.endpoint}/health`, { signal: AbortSignal.timeout(6000) });
       const body = await res.json();
       this.model = body.model || '';
       this.status = res.ok && body.ok ? 'online' : 'offline';
     } catch {
       this.status = 'offline';
+      // Look the address up again on the next try: the tunnel may have restarted.
+      if (this.endpoint !== LOCAL_AI_ENDPOINT) this.endpoint = '';
     }
   }
 

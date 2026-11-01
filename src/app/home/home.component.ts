@@ -37,9 +37,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       category: 'Mobile · Flutter + Firebase',
       image: 'assets/img/shnell.jpg',
       link: 'https://play.google.com/store/apps/details?id=com.shnell.app&hl=fr',
-      summary: 'On-demand delivery app, live on Google Play.',
-      description: 'Shnell is an on-demand logistics and delivery platform I founded and built. The client app lets users request a delivery, get matched with a nearby transport provider in real time, and follow the trip live on the map until the item arrives.',
-      tech: ['Flutter', 'Firebase', 'Google Maps API', 'Real-time tracking']
+      summary: 'Multi-region delivery app with in-app calls and a matching engine, live on Google Play.',
+      description: 'Shnell is an on-demand logistics and delivery platform I founded and built. A matching engine pairs each request with the best nearby transport provider in real time, and the trip is followed live on the map until the item arrives. Clients and drivers talk through a custom in-app communication system (voice calls, video calls and messaging) without sharing phone numbers. The product is multi-region: currencies and languages are configurable, so it is ready to launch in any country.',
+      tech: ['Flutter', 'Firebase', 'Matching engine', 'In-app voice & video calls', 'Messaging', 'Multi-currency · i18n', 'Google Maps API']
     },
     {
       title: 'Shnell — Driver App',
@@ -47,8 +47,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       image: 'assets/img/shnell-driver.jpg',
       link: 'https://play.google.com/store/apps/details?id=com.shnell.shnell_driver',
       summary: 'Companion app for transport partners, live on Google Play.',
-      description: 'The driver side of Shnell: partners receive delivery requests, accept trips, navigate, and track their earnings. Location is streamed in the background so clients and the admin dashboard see each trip in real time.',
-      tech: ['Flutter', 'Firebase', 'WebSockets', 'Background location']
+      description: 'The driver side of Shnell: partners receive requests dispatched by the matching engine, accept trips, navigate, call or message the client in-app (voice, video, chat), and track their earnings in their local currency. Location is streamed in the background so clients and the admin dashboard see each trip in real time.',
+      tech: ['Flutter', 'Firebase', 'WebSockets', 'Background location', 'In-app calls']
     },
     {
       title: 'FawaNews — LiveScore',
@@ -78,7 +78,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       image: 'assets/img/dashboard.png',
       link: 'https://shnell.tn',
       summary: 'Operations dashboard for the Shnell delivery platform.',
-      description: 'The admin panel the Shnell team uses to follow deliveries, drivers, users and revenue in real time, with role-based access and analytics.',
+      description: 'The admin panel the Shnell team uses to follow deliveries, drivers, users and revenue in real time, with role-based access and analytics. Regions, currencies and languages are managed from here, so a new country can be opened without changing the apps.',
       tech: ['Angular', 'Firebase', 'RxJS', 'Chart.js']
     },
     {
