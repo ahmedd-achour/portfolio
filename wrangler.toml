@@ -1,0 +1,7 @@
+name = "achour"
+pages_build_output_dir = "dist/portfolio/browser"
+compatibility_date = "2026-04-23"
+
+# Workers AI for the "Ask my AI" chat (functions/api/chat.ts): runs on Cloudflare, not on any personal machine.
+[ai]
+binding = "AI"

@@ -2,21 +2,9 @@ import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-// The local proxy (ai-server/) is exposed through a Cloudflare quick tunnel whose address
-// changes on every restart. ai-server/start.ps1 publishes the current address in a public
-// gist file, which the site looks up here. On localhost, talk to the proxy directly.
-const GITHUB_USER = 'ahmedd-achour';
-const ENDPOINT_FILE = 'portfolio-ai-endpoint.json';
-const LOCAL_AI_ENDPOINT = 'http://127.0.0.1:8787';
-
-async function findPublicEndpoint(): Promise<string> {
-  const gists = await (await fetch(`https://api.github.com/users/${GITHUB_USER}/gists?per_page=50`, { signal: AbortSignal.timeout(6000) })).json();
-  const file = gists.find((g: any) => g.files?.[ENDPOINT_FILE])?.files[ENDPOINT_FILE];
-  if (!file) throw new Error('no endpoint published');
-  // raw_url is pinned to the latest revision, so it is never a stale cached copy.
-  const { url } = await (await fetch(file.raw_url, { signal: AbortSignal.timeout(6000) })).json();
-  return url;
-}
+// Pages Functions in functions/api/ (same origin), backed by Cloudflare Workers AI.
+// Locally, run `npx wrangler pages dev dist/portfolio/browser` to get them.
+const AI_ENDPOINT = '/api';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -40,7 +28,7 @@ export class AiChatComponent implements OnInit {
   messages: ChatMessage[] = [];
   draft = '';
   busy = false;
-  endpoint = '';
+  endpoint = AI_ENDPOINT;
 
   suggestions = [
     'Who is Ahmed and what does he build?',
@@ -53,22 +41,18 @@ export class AiChatComponent implements OnInit {
 
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
-    if (location.hostname === 'localhost') this.endpoint = LOCAL_AI_ENDPOINT;
     this.checkHealth();
   }
 
   async checkHealth() {
     this.status = 'checking';
     try {
-      if (!this.endpoint) this.endpoint = await findPublicEndpoint();
       const res = await fetch(`${this.endpoint}/health`, { signal: AbortSignal.timeout(6000) });
       const body = await res.json();
       this.model = body.model || '';
       this.status = res.ok && body.ok ? 'online' : 'offline';
     } catch {
       this.status = 'offline';
-      // Look the address up again on the next try: the tunnel may have restarted.
-      if (this.endpoint !== LOCAL_AI_ENDPOINT) this.endpoint = '';
     }
   }
 
@@ -115,7 +99,7 @@ export class AiChatComponent implements OnInit {
     } catch (e: any) {
       if (e instanceof TypeError) this.status = 'offline';
       reply.content = this.status === 'offline'
-        ? 'The assistant is offline right now: it runs on Ahmed\'s own PC, which is switched off. You can reach Ahmed directly on WhatsApp (+216 94 190 332).'
+        ? 'The assistant is unavailable right now. You can reach Ahmed directly on WhatsApp (+216 94 190 332).'
         : `Something went wrong (${e.message}). Please try again in a moment.`;
     } finally {
       this.busy = false;

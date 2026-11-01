@@ -3,10 +3,10 @@
   <div class="ai-disclaimer">
     <i class="fa-solid fa-microchip"></i>
     <p>
-      <b>100% locally built and hosted.</b>
-      This assistant is an open-source model running on Ahmed's own laptop hardware, not a cloud AI service.
-      Its answers are not comparable to giants like Gemini, ChatGPT or Claude, but it shows Ahmed's hands-on
-      skills in AI and automation: model serving, a secure API proxy and a Cloudflare tunnel, all built by him.
+      <b>Built by Ahmed, running on the edge.</b>
+      This assistant is an open-source model (Llama 3.1) served by Cloudflare Workers AI through a serverless
+      function Ahmed wrote. Its answers are not comparable to giants like Gemini, ChatGPT or Claude, but it shows
+      his hands-on skills in AI and automation: prompt design, a secure API layer, rate limiting and streaming.
     </p>
   </div>
 
@@ -26,7 +26,7 @@
     <div class="ai-empty" *ngIf="!messages.length">
       <p *ngIf="status !== 'offline'">Hi! I'm Ahmed's AI assistant. Pick a question or type your own.</p>
       <p *ngIf="status === 'offline'">
-        The assistant is offline right now because Ahmed's PC is switched off.
+        The assistant is unavailable right now.
         <a href="https://wa.me/21694190332" target="_blank">Message Ahmed on WhatsApp</a>
         or <button type="button" class="link-btn" (click)="checkHealth()">try again</button>.
       </p>
@@ -58,7 +58,7 @@
   </form>
 
   <div class="ai-foot">
-    <span>{{ model ? 'Model: ' + model + ' · ' : '' }}Ollama · Node.js proxy · Cloudflare Tunnel</span>
+    <span>{{ model ? 'Model: ' + model + ' · ' : '' }}Cloudflare Workers AI · Pages Functions</span>
     <button type="button" class="link-btn" *ngIf="messages.length" (click)="reset()">New chat</button>
   </div>
 </div>

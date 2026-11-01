@@ -91,13 +91,13 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       tech: ['Angular', 'Cloudflare Pages', 'Responsive design']
     },
     {
-      title: 'Local AI Assistant',
+      title: 'AI Assistant',
       category: 'AI · Self-hosted LLM',
       image: 'assets/img/chatbot.png',
       link: '#ask-ai',
-      summary: 'The assistant on this page: an open-source LLM running on my own PC.',
-      description: 'An open-source language model served with Ollama on my own laptop GPU, behind a small Node.js proxy (rate limiting, streaming, a fixed system prompt) and exposed securely through a Cloudflare Tunnel. No paid AI API is involved. Try it in the "Ask my AI" section.',
-      tech: ['Ollama', 'Qwen 2.5', 'Node.js', 'Cloudflare Tunnel', 'Streaming']
+      summary: 'The assistant on this page: an open-source LLM served at the edge.',
+      description: 'An open-source language model (Llama 3.1) running on Cloudflare Workers AI, called from a serverless Pages Function I wrote: fixed system prompt with my profile, input limits, rate limiting and streamed answers. Always on, no server to maintain. Try it in the "Ask my AI" section.',
+      tech: ['Cloudflare Workers AI', 'Pages Functions', 'Llama 3.1', 'TypeScript', 'Streaming']
     }
   ];
 
@@ -105,8 +105,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { title: 'Mobile', icon: 'fa fa-mobile', items: ['Flutter', 'Dart', 'Firebase (Auth, Firestore, FCM)', 'Google Maps', 'Play Store publishing'] },
     { title: 'Web', icon: 'fa fa-code', items: ['Angular', 'RxJS', 'React + Vite', 'TypeScript', 'Responsive UI'] },
     { title: 'Backend', icon: 'fa fa-server', items: ['Node.js / Express', 'MongoDB', 'REST APIs', 'WebSockets', 'Cron jobs'] },
-    { title: 'Cloud & DevOps', icon: 'fa fa-cloud', items: ['Cloudflare Workers & Pages', 'Cloudflare Tunnel', 'Git / GitHub', 'API security'] },
-    { title: 'AI & Automation', icon: 'fa fa-magic', items: ['Local LLMs (Ollama)', 'Gemini API', 'OCR (PaddleOCR)', 'Prompt engineering', 'WhatsApp Business API'] }
+    { title: 'Cloud & DevOps', icon: 'fa fa-cloud', items: ['Cloudflare Workers & Pages', 'Workers AI', 'Git / GitHub', 'API security'] },
+    { title: 'AI & Automation', icon: 'fa fa-magic', items: ['LLMs (Workers AI, Ollama)', 'Gemini API', 'OCR (PaddleOCR)', 'Prompt engineering', 'WhatsApp Business API'] }
   ];
 
   selectedProject: Project | null = null;
