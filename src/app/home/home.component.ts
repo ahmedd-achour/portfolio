@@ -2,6 +2,7 @@ import { Component, AfterViewInit, Inject, PLATFORM_ID, OnDestroy, ElementRef, V
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AiChatComponent } from '../ai-chat/ai-chat.component';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { techIcon } from './tech-icons';
 
 declare var $: any;
 
@@ -82,6 +83,15 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       tech: ['Angular', 'Firebase', 'RxJS', 'Chart.js']
     },
     {
+      title: 'Ste Belhaj Amor',
+      category: 'Web · Client website',
+      image: 'assets/img/belhaj-amor.png',
+      link: 'https://ste-belhaj-amor.web.app',
+      summary: 'Showcase website for a tiles, ceramics and sanitaryware store in Sahline.',
+      description: 'A bilingual (French / Arabic) website for Ste Belhaj Amor, a building-materials store on the Sousse road in Sahline selling stoneware, wall tiles, ceramics and sanitaryware. It presents the product range and the store, highlights the instalment payment offer (a deposit, then a monthly amount), and turns visitors into customers with one-tap WhatsApp and phone contact. Built with Angular and hosted on Firebase.',
+      tech: ['Angular', 'Firebase Hosting', 'Multilingual FR · AR', 'WhatsApp contact', 'Responsive design', 'SEO']
+    },
+    {
       title: 'Coach Aymen Othmeni',
       category: 'Web · Client website',
       image: 'assets/img/face.png',
@@ -108,6 +118,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { title: 'Cloud & DevOps', icon: 'fa fa-cloud', items: ['Cloudflare Workers & Pages', 'Workers AI', 'Git / GitHub', 'API security'] },
     { title: 'AI & Automation', icon: 'fa fa-magic', items: ['LLMs (Workers AI, Ollama)', 'Gemini API', 'OCR (PaddleOCR)', 'Prompt engineering', 'WhatsApp Business API'] }
   ];
+
+  readonly techIcon = techIcon;
 
   selectedProject: Project | null = null;
 

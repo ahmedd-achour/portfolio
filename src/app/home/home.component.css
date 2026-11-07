@@ -691,3 +691,49 @@
 @media (max-width: 767px) {
   .header-buttons .ghost-btn { display: none; }
 }
+
+/* ─── Tech icons (cards, skills, modal) ────── */
+.tech-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 14px 0 0;
+  margin: 14px 0 0;
+  border-top: 1px solid rgba(201, 169, 110, 0.18);
+}
+.tech-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 11.5px/1 'Plus Jakarta Sans', sans-serif;
+  color: #4b5563;
+  background: #f7f3ec;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 999px;
+  padding: 5px 10px 5px 7px;
+}
+.tech-chips img,
+.tech-stack ul li img,
+.skill-icon img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.tech-chips i,
+.tech-stack ul li i,
+.skill-icon i {
+  width: 15px;
+  font-size: 12px;
+  text-align: center;
+  color: #c9a96e;
+  flex-shrink: 0;
+}
+.tech-stack ul li,
+.skill-group li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.skill-icon { display: inline-flex; }
