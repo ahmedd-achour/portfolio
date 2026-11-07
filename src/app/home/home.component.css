@@ -110,29 +110,58 @@
   background-repeat: no-repeat;
   background-color: #ede9e0;
 }
-.hero-image {
-  width: 100%;
-  /* Gives the container a defined shape (width-to-height ratio) */
-  aspect-ratio: 1 / 1;
-
-  /* Curve and border styles */
-  border-radius: 32px 32px 140px 32px;
-  border: 8px solid #ffffff;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-
-  /* Clips the image strictly inside the border radius */
-  overflow: hidden;
+/* ─── Hero photo: organic wavy blob ───────── */
+.hero-photo {
   position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
 }
 
-.hero-image img {
+/* Soft accent blob peeking out behind the photo */
+.hero-photo-blob {
+  position: absolute;
+  inset: -4%;
+  background: linear-gradient(135deg, #fca311 0%, #ffd27a 55%, #f3e9d2 100%);
+  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  opacity: 0.85;
+  z-index: 0;
+  animation: heroBlob 14s ease-in-out infinite alternate;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 1;
+  display: block;
   width: 100%;
   height: 100%;
-  /* Forces the image to fill the entire container without stretching */
   object-fit: cover;
-  object-position: center;
-  display: block;
+  object-position: center 30%;
+  border: 6px solid #ffffff;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  box-shadow: 0 20px 45px rgba(22, 20, 18, 0.18);
+  animation: heroMorph 12s ease-in-out infinite alternate;
 }
+
+@keyframes heroMorph {
+  0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  33%  { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+  66%  { border-radius: 54% 46% 38% 62% / 38% 52% 48% 62%; }
+  100% { border-radius: 46% 54% 62% 38% / 55% 42% 58% 45%; }
+}
+
+@keyframes heroBlob {
+  0%   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(0deg); }
+  50%  { border-radius: 58% 42% 38% 62% / 55% 36% 64% 45%; transform: rotate(8deg); }
+  100% { border-radius: 36% 64% 52% 48% / 62% 50% 50% 38%; transform: rotate(-6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image,
+  .hero-photo-blob { animation: none; }
+}
+
 .hero-badge {
   position: absolute;
   bottom: 0;
