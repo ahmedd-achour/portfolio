@@ -171,7 +171,8 @@
 @media (max-width: 576px) {
   .ai-head { flex-wrap: wrap; padding: 16px; }
   .ai-title h2 { font-size: 22px; }
-  .ai-thread { height: 340px; padding: 16px; }
+  /* shorter on phones so the chat never fills the screen and traps the swipe */
+  .ai-thread { height: auto; min-height: 180px; max-height: 50vh; max-height: 50svh; padding: 16px; }
   .ai-disclaimer { padding: 14px 16px; }
   .bubble { max-width: 92%; }
   .ai-foot { flex-direction: column; }

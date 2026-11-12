@@ -1,9 +1,8 @@
 /* Global Angular styles — all overrides go into src/css/style.css */
 
-/* Iron-clad overflow kill */
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
+/* Horizontal overflow is handled on <html> only (see src/css/style.css).
+   Never set overflow on <body>: it creates a nested scroller on mobile. */
+html {
   scroll-behavior: smooth;
 }
 

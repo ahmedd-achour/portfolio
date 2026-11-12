@@ -151,7 +151,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   closeProject() {
     this.selectedProject = null;
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = '';
   }
 
   private hidePreloader() {

@@ -13,17 +13,21 @@
   box-sizing: border-box;
 }
 
+/* Only <html> clips horizontally. Putting overflow on <body> too makes
+   body its own scroll container (a second scroller under the page). */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100%;
 }
+@supports (overflow-x: clip) {
+  html { overflow-x: clip; }
+}
 
 html,
 body {
   width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
+  max-width: 100%;
   font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,7 +44,9 @@ footer,
 div[class*="section"],
 div[class*="wrap"] {
   max-width: 100%;
-  overflow-x: hidden;
+  /* clip (not hidden): hidden turns every section into an inner
+     vertical scroll container, which traps touch scrolling on phones */
+  overflow-x: clip;
 }
 
 /* ----------------------------------------
@@ -682,12 +688,6 @@ textarea:focus {
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
-  /* Core overflow fix */
-  html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
-  }
-
   * {
     max-width: 100%;
   }
