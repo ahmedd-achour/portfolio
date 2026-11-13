@@ -132,6 +132,15 @@
               </div>
             </div>
           </article>
+
+          <div class="demo-video" *ngIf="shnellCase.video as v">
+            <div class="demo-copy">
+              <span class="eyebrow">Demo</span>
+              <h3>See Shnell Business in action</h3>
+              <p>{{ v.caption }}</p>
+            </div>
+            <video [src]="v.src" [poster]="v.poster" controls preload="none" playsinline width="1280" height="720"></video>
+          </div>
         </div>
       </div>
     </div>
@@ -182,6 +191,33 @@
       </div>
     </div>
   </section>
+
+  <ng-template #architecture>
+    <figure class="arch" aria-label="Shnell architecture">
+      <div class="arch-col">
+        <span class="arch-label">Apps &amp; channels</span>
+        <div class="arch-node"><i class="fa-solid fa-mobile-screen"></i><div><b>Client app</b><small>Flutter · Android &amp; iOS</small></div></div>
+        <div class="arch-node"><i class="fa-solid fa-truck"></i><div><b>Driver app</b><small>Flutter · background location</small></div></div>
+        <div class="arch-node"><i class="fa-solid fa-gauge-high"></i><div><b>Web, Business &amp; Admin</b><small>Angular · shnell.tn</small></div></div>
+        <div class="arch-node"><i class="fa-solid fa-plug"></i><div><b>Partner ERPs</b><small>Public API v1 + webhooks</small></div></div>
+      </div>
+      <div class="arch-arrow" aria-hidden="true"><i class="fa-solid fa-arrows-left-right"></i></div>
+      <div class="arch-col arch-core">
+        <span class="arch-label">Firebase backend</span>
+        <div class="arch-node strong"><i class="fa-solid fa-bolt"></i><div><b>78 Cloud Functions</b><small>pricing · smart dispatch · fleets · plans · webhooks</small></div></div>
+        <div class="arch-node"><i class="fa-solid fa-database"></i><div><b>Firestore</b><small>orders · offers · deals · stops</small></div></div>
+        <div class="arch-node"><i class="fa-solid fa-satellite-dish"></i><div><b>Realtime Database</b><small>driver presence &amp; live position</small></div></div>
+        <div class="arch-node"><i class="fa-solid fa-shield-halved"></i><div><b>Auth · Storage · FCM</b><small>verification documents · push</small></div></div>
+      </div>
+      <div class="arch-arrow" aria-hidden="true"><i class="fa-solid fa-arrows-left-right"></i></div>
+      <div class="arch-col">
+        <span class="arch-label">External services</span>
+        <div class="arch-node"><i class="fa-solid fa-map-location-dot"></i><div><b>Google Maps</b><small>Directions · waypoint optimisation</small></div></div>
+        <div class="arch-node"><i class="fa-solid fa-phone"></i><div><b>Agora</b><small>in-app voice &amp; video calls</small></div></div>
+        <div class="arch-node"><i class="fa-brands fa-cloudflare"></i><div><b>Cloudflare</b><small>web hosting &amp; edge</small></div></div>
+      </div>
+    </figure>
+  </ng-template>
 
   <ng-template #projectCard let-project>
     <article class="portfolio-item-v2" [class.featured]="project.featured" (click)="openProject(project, $event)" tabindex="0" (keydown.enter)="openProject(project, $event)" [attr.aria-label]="project.title + ': open details'">
@@ -383,6 +419,10 @@
         <li *ngFor="let m of p.metrics">{{ m }}</li>
       </ul>
       <p class="modal-lead">{{ p.description }}</p>
+      <figure class="modal-video" *ngIf="p.video as v">
+        <video [src]="v.src" [poster]="v.poster" controls preload="none" playsinline width="1280" height="720"></video>
+        <figcaption>{{ v.caption }}</figcaption>
+      </figure>
 
       <div class="case" *ngIf="p.caseStudy as c">
         <section>
@@ -392,6 +432,10 @@
         <section>
           <h3><i class="fa-solid fa-layer-group"></i> What I built</h3>
           <ul><li *ngFor="let b of c.built">{{ b }}</li></ul>
+        </section>
+        <section *ngIf="p.architecture">
+          <h3><i class="fa-solid fa-diagram-project"></i> Architecture</h3>
+          <ng-container *ngTemplateOutlet="architecture"></ng-container>
         </section>
         <section>
           <h3><i class="fa-solid fa-puzzle-piece"></i> Hard parts &amp; how I solved them</h3>

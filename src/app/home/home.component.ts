@@ -23,6 +23,8 @@ export interface Project {
   gallery?: string[];
   caseStudy?: CaseStudy;
   featured?: boolean;
+  video?: { src: string; poster: string; caption: string };
+  architecture?: boolean;
 }
 
 const IMG = 'assets/img/projects/';
@@ -56,7 +58,9 @@ export class HomeComponent {
     featured: true,
     summary: 'Pick what you are moving, get an instant price across vehicle types, follow your load live and talk to the driver in-app. Two Flutter apps, an Angular dashboard and a real-time backend, built and shipped solo.',
     description: 'Shnell is the logistics startup I founded. I designed and built every part of it: the client app, the driver app, the admin dashboard and the backend that connects them in real time.',
-    metrics: ['2 apps live on Google Play', 'v2.49 · Oct 2026', 'Client · Driver · Admin · Business', 'Light & dark themes'],
+    metrics: ['2 apps live on Google Play', 'v2.49 · Oct 2026', '78 Cloud Functions', 'Public API v1', 'Light & dark themes'],
+    video: { src: 'assets/video/shnell-business.mp4', poster: 'assets/video/shnell-business-poster.jpg', caption: 'Shnell Business in 2 minutes (French): bulk trips, driver offers, live tracking and the public API.' },
+    architecture: true,
     gallery: [...range('shnell-client', 9), ...range('shnell-driver', 3)],
     tech: ['Flutter', 'Firebase', 'Cloud Functions', 'Google Maps API', 'Agora', 'Angular', 'Cloudflare Workers'],
     caseStudy: {
@@ -66,8 +70,9 @@ export class HomeComponent {
         'Instant estimate across vehicle types (for example 27–44 TND for a 12.5 km move with a small van, pick-up or large van), with "now" or scheduled pickup.',
         'Driver app (Flutter): multi-step verification with document upload, an online/offline switch, incoming requests, offers, turn-by-turn navigation and an earnings dashboard by day, week and month.',
         'Return trips: drivers publish the empty leg of a long trip, and clients book it at a reduced price, so drivers no longer drive home empty.',
-        'Shnell Business: company accounts with their own fleet, fleet invitations, business trips of up to 50 stops, a public API (v1) and a Pro plan.',
-        'Matching and offers: nearby verified drivers send offers, the client accepts one, a deal is created and a Cloud Function notifies the driver instantly.',
+        'Shnell Business: company accounts with their own fleet, fleet invitations, business trips of up to 50 stops and a Pro plan.',
+        'Public API v1 so a company’s website or ERP can book trips: hashed API keys, 120 requests per minute, idempotency keys, and HMAC-signed webhooks for every state change (searching, offers, assigned, delivered…).',
+        'Smart dispatch (Cloud Functions): the search widens in radius tiers, 5 → 20 → 50 → 100 → 200 km, one tier every 36 s, and each tier only notifies drivers newly in range. Drivers accept the price or send a counter-offer, and the client picks one.',
         'Live tracking: the driver\'s position is streamed in the background, and the client sees a moving marker, ETA and distance until delivery.',
         'In-app voice calls, video calls and chat (Agora), so clients and drivers never need to share phone numbers.',
         'Angular admin dashboard to follow orders, drivers and revenue, and to configure regions, currencies and languages without shipping a new app.'
@@ -76,11 +81,13 @@ export class HomeComponent {
         'Keeping orders, offers, deals and stops consistent across two apps on flaky mobile networks: critical state changes go through Firestore transactions and batched writes.',
         'Smooth maps on low-end Android phones: trip previews render maps in lite mode on Android instead of full interactive maps.',
         'Background location for drivers had to pass Google Play review: I built a prominent-disclosure permission flow and recorded the policy videos myself.',
-        'Two codebases, one data model: shared models and a common schema document keep the client and driver apps in sync.'
+        'Two codebases, one data model: shared models and a common schema document keep the client and driver apps in sync.',
+        'One booking engine for every channel: the client app, Shnell Business and the public API all go through the same pricing, booking and dispatch functions, so a rule changes in one place.'
       ],
       results: [
         'Client and driver apps live on Google Play, updated regularly (latest release October 2026).',
         'Driver app launched in beta, onboarding the first verified drivers.',
+        'A backend of 78 Cloud Functions covering pricing, dispatch, calls, fleets, plans, webhooks and admin tools.',
         'Multi-region from day one: a new country is a configuration change, not a rewrite.'
       ]
     }
@@ -187,11 +194,11 @@ export class HomeComponent {
   ];
 
   readonly skillGroups = [
-    { title: 'Mobile', icon: 'fa fa-mobile', items: ['Flutter', 'Dart', 'Firebase (Auth, Firestore, FCM)', 'Google Maps', 'Play Store publishing'] },
-    { title: 'Web', icon: 'fa fa-code', items: ['Angular', 'RxJS', 'React + Vite', 'TypeScript', 'Responsive UI'] },
-    { title: 'Backend', icon: 'fa fa-server', items: ['Node.js / Express', 'MongoDB', 'REST APIs', 'WebSockets', 'Cron jobs'] },
-    { title: 'Cloud & DevOps', icon: 'fa fa-cloud', items: ['Cloudflare Workers & Pages', 'Workers AI', 'Git / GitHub', 'API security'] },
-    { title: 'AI & Automation', icon: 'fa fa-magic', items: ['LLMs (Workers AI, Ollama)', 'Gemini API', 'OCR (PaddleOCR)', 'Prompt engineering', 'WhatsApp Business API'] }
+    { title: 'Mobile', icon: 'fa-solid fa-mobile-screen', items: ['Flutter', 'Dart', 'Firebase (Auth, Firestore, FCM)', 'Google Maps', 'Play Store publishing'] },
+    { title: 'Web', icon: 'fa-solid fa-code', items: ['Angular', 'RxJS', 'React + Vite', 'TypeScript', 'Responsive UI'] },
+    { title: 'Backend', icon: 'fa-solid fa-server', items: ['Node.js / Express', 'MongoDB', 'REST APIs', 'WebSockets', 'Cron jobs'] },
+    { title: 'Cloud & DevOps', icon: 'fa-solid fa-cloud', items: ['Cloudflare Workers & Pages', 'Workers AI', 'Git / GitHub', 'API security'] },
+    { title: 'AI & Automation', icon: 'fa-solid fa-wand-magic-sparkles', items: ['LLMs (Workers AI, Ollama)', 'Gemini API', 'OCR (PaddleOCR)', 'Prompt engineering', 'WhatsApp Business API'] }
   ];
 
   readonly techIcon = techIcon;

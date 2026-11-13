@@ -31,9 +31,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/css/bootstrap.min.css",
-              "src/css/font-awesome.min.css",
-              "src/css/flaticon.css",
+              "src/css/grid.css",
               "src/css/style.css"
 
 
@@ -109,9 +107,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/css/bootstrap.min.css",
-              "src/css/font-awesome.min.css",
-              "src/css/flaticon.css",
+              "src/css/grid.css",
               "src/css/style.css"
             ],
             "scripts": []
