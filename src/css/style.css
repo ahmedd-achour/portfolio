@@ -200,33 +200,6 @@ textarea:focus {
 }
 
 /* ----------------------------------------
-   Preloader
-------------------------------------------*/
-#preloder {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.loader {
-  width: 38px;
-  height: 38px;
-  border: 3px solid var(--lavender);
-  border-top-color: var(--primary);
-  border-right-color: var(--secondary);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ----------------------------------------
    Buttons — pill, gradient primary
 ------------------------------------------*/
 .site-btn {
@@ -367,7 +340,7 @@ textarea:focus {
   margin-bottom: 48px;
 }
 
-.hero-text h2 {
+.hero-text h1 {
   font-size: clamp(44px, 6.5vw, 76px);
   font-weight: 700;
   line-height: 1.05;
@@ -599,32 +572,6 @@ textarea:focus {
   background: #fff;
 }
 
-/* ----------------------------------------
-   Reveal Animations
-------------------------------------------*/
-.reveal {
-  opacity: 0;
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-}
-
-.reveal-up    { transform: translateY(28px); }
-.reveal-left  { transform: translateX(-28px); }
-.reveal-right { transform: translateX(28px); }
-
-.reveal.active {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-.reveal-delay-1 { transition-delay: 0.08s; }
-.reveal-delay-2 { transition-delay: 0.18s; }
-.reveal-delay-3 { transition-delay: 0.28s; }
-.reveal-delay-4 { transition-delay: 0.38s; }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { transition: none; opacity: 1; transform: none; }
-}
-
 /* ======================================
    RESPONSIVE — Mobile-First
 ========================================*/
@@ -685,7 +632,7 @@ textarea:focus {
 
   .hero-text { margin-bottom: 32px; }
 
-  .hero-text h2 {
+  .hero-text h1 {
     font-size: clamp(38px, 11vw, 56px);
     margin-bottom: 16px;
   }
@@ -754,45 +701,4 @@ textarea:focus {
   }
 
   .hero-info ul li { font-size: 14px; }
-}
-
-/* ----------------------------------------
-   Legacy components (used by /home2, /home3)
-------------------------------------------*/
-.circle-progress { text-align: center; padding-top: 30px; display: inline-block; }
-.circle-progress .prog-circle { margin-bottom: -155px; }
-.circle-progress canvas { transform: rotate(90deg); }
-.circle-progress .progress-info {
-  background: var(--lavender);
-  width: 127px; height: 127px;
-  border-radius: 50%;
-  margin: 0 auto;
-  padding-top: 45px;
-}
-.circle-progress .progress-info h2 { font-size: 36px; color: var(--ink) !important; }
-.circle-progress .prog-title { text-align: center; margin-top: 55px; }
-.circle-progress .prog-title h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
-.circle-progress .prog-title p { font-size: 13px; color: var(--muted-text) !important; }
-
-.fact-box {
-  height: 320px;
-  display: table;
-  width: 100%;
-  background: var(--gradient-diag);
-  border-radius: var(--radius-lg);
-  margin-bottom: 28px;
-}
-.fact-box.trans { background: transparent; }
-.fact-box .fact-content { display: table-cell; vertical-align: middle; text-align: center; }
-.fact-box .fact-content img { width: 48px; margin: 0 auto 20px; opacity: 0.9; }
-.fact-box .fact-content h2 { font-size: 52px; color: #fff; }
-.fact-box .fact-content p { color: rgba(255, 255, 255, 0.8); margin-bottom: 0; font-size: 13px; }
-
-.img-popup-warp .mfp-content,
-.img-popup-warp.mfp-ready.mfp-removing .mfp-content { opacity: 0; transform: scale(0.88); transition: all 0.4s; }
-.img-popup-warp.mfp-ready .mfp-content { opacity: 1; transform: scale(1); }
-
-@media only screen and (max-width: 767px) {
-  .fact-box { height: 260px; margin-bottom: 20px; }
-  .circle-progress { margin-bottom: 44px; }
 }

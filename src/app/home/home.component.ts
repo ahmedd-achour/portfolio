@@ -1,117 +1,192 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID, OnDestroy, ElementRef, ViewChild } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AiChatComponent } from '../ai-chat/ai-chat.component';
-import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { techIcon } from './tech-icons';
 
-declare var $: any;
+interface CaseStudy {
+  problem: string;
+  built: string[];
+  challenges: string[];
+  results: string[];
+}
 
-interface Project {
+export interface Project {
   title: string;
   category: string;
   image: string;
   link: string;
+  linkLabel?: string;
   summary: string;
   description: string;
   tech: string[];
+  metrics?: string[];
+  gallery?: string[];
+  caseStudy?: CaseStudy;
   featured?: boolean;
 }
+
+const IMG = 'assets/img/projects/';
+const range = (prefix: string, n: number) => Array.from({ length: n }, (_, i) => `${IMG}${prefix}-${i + 1}.webp`);
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, AiChatComponent],
+  imports: [CommonModule, AiChatComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('lottieContainer', { static: false }) lottieContainer!: ElementRef;
+export class HomeComponent {
+  readonly linkedin = 'https://www.linkedin.com/in/ahmed-achour-3a695926a/';
+  readonly github = 'https://github.com/ahmedd-achour';
+  readonly whatsapp = 'https://wa.me/21694190332';
 
-  private lottieAnimation: any = null;
-  private lottieWebsiteChar: any = null;
-  private lottieBizWoman: any = null;
+  readonly stats = [
+    { value: '100K+', label: 'Downloads on FawaNews, my live-score app' },
+    { value: '3', label: 'Apps I built and published on Google Play' },
+    { value: '99.997%', label: 'Request success rate on my Cloudflare Workers APIs' },
+    { value: '0.51 ms', label: 'Average CPU time per request at the edge' }
+  ];
 
+  readonly shnellCase: Project = {
+    title: 'Shnell — on-demand transport platform',
+    category: 'Case study · Founder & full-stack developer',
+    image: `${IMG}shnell-client.webp`,
+    link: 'https://play.google.com/store/apps/details?id=com.shnell.app',
+    linkLabel: 'Get it on Google Play',
+    featured: true,
+    summary: 'Pick what you are moving, get an instant price across vehicle types, follow your load live and talk to the driver in-app. Two Flutter apps, an Angular dashboard and a real-time backend, built and shipped solo.',
+    description: 'Shnell is the logistics startup I founded. I designed and built every part of it: the client app, the driver app, the admin dashboard and the backend that connects them in real time.',
+    metrics: ['2 apps live on Google Play', 'v2.49 · Oct 2026', 'Client · Driver · Admin · Business', 'Light & dark themes'],
+    gallery: [...range('shnell-client', 9), ...range('shnell-driver', 3)],
+    tech: ['Flutter', 'Firebase', 'Cloud Functions', 'Google Maps API', 'Agora', 'Angular', 'Cloudflare Workers'],
+    caseStudy: {
+      problem: 'In Tunisia, moving furniture or building materials still means calling around for a truck, negotiating the price by phone and having no idea where your load is. Drivers, on their side, lose hours waiting for work. Shnell turns that into a booking that takes under a minute, with a fair price and live tracking.',
+      built: [
+        'Client app (Flutter): pickup plus multiple stops, cargo category and a catalogue of 330+ items with weight estimates, so the app picks the right vehicle. Routes are ordered with Google Directions waypoint optimisation before the order is saved.',
+        'Instant estimate across vehicle types (for example 27–44 TND for a 12.5 km move with a small van, pick-up or large van), with "now" or scheduled pickup.',
+        'Driver app (Flutter): multi-step verification with document upload, an online/offline switch, incoming requests, offers, turn-by-turn navigation and an earnings dashboard by day, week and month.',
+        'Return trips: drivers publish the empty leg of a long trip, and clients book it at a reduced price, so drivers no longer drive home empty.',
+        'Shnell Business: company accounts with their own fleet, fleet invitations, business trips of up to 50 stops, a public API (v1) and a Pro plan.',
+        'Matching and offers: nearby verified drivers send offers, the client accepts one, a deal is created and a Cloud Function notifies the driver instantly.',
+        'Live tracking: the driver\'s position is streamed in the background, and the client sees a moving marker, ETA and distance until delivery.',
+        'In-app voice calls, video calls and chat (Agora), so clients and drivers never need to share phone numbers.',
+        'Angular admin dashboard to follow orders, drivers and revenue, and to configure regions, currencies and languages without shipping a new app.'
+      ],
+      challenges: [
+        'Keeping orders, offers, deals and stops consistent across two apps on flaky mobile networks: critical state changes go through Firestore transactions and batched writes.',
+        'Smooth maps on low-end Android phones: trip previews render maps in lite mode on Android instead of full interactive maps.',
+        'Background location for drivers had to pass Google Play review: I built a prominent-disclosure permission flow and recorded the policy videos myself.',
+        'Two codebases, one data model: shared models and a common schema document keep the client and driver apps in sync.'
+      ],
+      results: [
+        'Client and driver apps live on Google Play, updated regularly (latest release October 2026).',
+        'Driver app launched in beta, onboarding the first verified drivers.',
+        'Multi-region from day one: a new country is a configuration change, not a rewrite.'
+      ]
+    }
+  };
 
-  mobileProjects: Project[] = [
+  readonly mobileProjects: Project[] = [
     {
-      title: 'Shnell — Client App',
-      category: 'Mobile · Flutter + Firebase',
-      image: 'assets/img/shnell.jpg',
-      link: 'https://play.google.com/store/apps/details?id=com.shnell.app&hl=fr',
-      summary: 'Multi-region delivery app with in-app calls and a matching engine, live on Google Play.',
-      description: 'Shnell is an on-demand logistics and delivery platform I founded and built. A matching engine pairs each request with the best nearby transport provider in real time, and the trip is followed live on the map until the item arrives. Clients and drivers talk through a custom in-app communication system (voice calls, video calls and messaging) without sharing phone numbers. The product is multi-region: currencies and languages are configurable, so it is ready to launch in any country.',
-      tech: ['Flutter', 'Firebase', 'Matching engine', 'In-app voice & video calls', 'Messaging', 'Multi-currency · i18n', 'Google Maps API']
-    },
-    {
-      title: 'Shnell — Driver App',
-      category: 'Mobile · Real-time',
-      image: 'assets/img/shnell-driver.jpg',
+      title: 'Shnell Driver',
+      category: 'Mobile · Flutter · Real-time',
+      image: `${IMG}shnell-driver.webp`,
       link: 'https://play.google.com/store/apps/details?id=com.shnell.shnell_driver',
-      summary: 'Companion app for transport partners, live on Google Play.',
-      description: 'The driver side of Shnell: partners receive requests dispatched by the matching engine, accept trips, navigate, call or message the client in-app (voice, video, chat), and track their earnings in their local currency. Location is streamed in the background so clients and the admin dashboard see each trip in real time.',
-      tech: ['Flutter', 'Firebase', 'WebSockets', 'Background location', 'In-app calls']
+      linkLabel: 'Get it on Google Play',
+      summary: 'The partner app: go online, receive requests, send offers, publish return trips and track earnings. Live on Google Play.',
+      description: 'The driver side of Shnell. Partners go through document verification, switch online, then receive nearby requests, send offers, navigate to each stop and call or message the client in-app. They can publish the empty return leg of a long trip for clients to book at a reduced price, join company fleets, and follow their earnings by day, week or month. Location is streamed in the background so clients and the admin dashboard see each trip live.',
+      metrics: ['Live on Google Play', 'Return trips', 'Company fleets'],
+      gallery: range('shnell-driver', 3),
+      tech: ['Flutter', 'Firebase', 'Background location', 'Agora', 'Google Maps API']
     },
     {
-      title: 'FawaNews — LiveScore',
-      category: 'Mobile · Full-stack',
-      image: 'assets/img/fawanews.png',
+      title: 'FawaNews — Live scores',
+      category: 'Mobile · Flutter · Edge API',
+      image: `${IMG}fawanews.webp`,
       link: 'https://play.google.com/store/apps/details?id=com.live.fawanews',
-      summary: 'Football live scores and match events, live on Google Play.',
-      description: 'A lightweight football app with live results, fixtures and key match events. The data comes from my own scores API running on Cloudflare Workers, so the app stays fast and cheap to run.',
-      tech: ['Flutter', 'Node.js', 'Cloudflare Workers', 'Push notifications']
+      linkLabel: 'Get it on Google Play',
+      summary: 'Football live scores, leagues and sports news. 100K+ downloads on Google Play.',
+      description: 'A live-score and sports-news app covering leagues around the world: live matches, fixtures, favourites and push alerts. The data comes from my own API on Cloudflare Workers, which caches and normalises third-party feeds at the edge so the app stays fast for an international audience and cheap to run.',
+      metrics: ['100K+ downloads', 'Edge API on Cloudflare Workers'],
+      gallery: range('fawanews', 5),
+      tech: ['Flutter', 'Cloudflare Workers', 'Firebase', 'Push notifications', 'Node.js']
     }
   ];
 
-  webProjects: Project[] = [
+  readonly webProjects: Project[] = [
     {
       title: 'DADA Rent Car',
       category: 'Web · Full-stack · AI automation',
-      image: 'assets/img/dadarentcar.png',
+      image: `${IMG}dada.webp`,
       link: 'https://dadarentcar.com',
+      linkLabel: 'Visit dadarentcar.com',
       featured: true,
-      summary: 'Car rental platform in Tunisia: booking site, admin panel and AI document processing.',
-      description: 'A production car rental platform: a public booking site (vehicle catalogue, airport delivery, online deposit), an admin back-office, and a REST API with scheduled jobs. Customer ID cards and driving licences are scanned with OCR, contracts and documents are extracted with AI workers on Cloudflare, and customers are reached through WhatsApp Business, card payments and transactional email.',
-      tech: ['React + Vite + TypeScript', 'Node.js / Express', 'MongoDB', 'PaddleOCR', 'Gemini API', 'Cloudflare Workers', 'WhatsApp Business API', 'ClicToPay']
+      summary: 'Car rental platform in Tunisia: booking site, admin back-office and AI document processing.',
+      description: 'A production car rental platform: a public booking site, an admin back-office and a REST API with scheduled jobs, plus an automation layer that removes most of the manual paperwork.',
+      metrics: ['Live in production', 'OCR + AI document intake', 'Online deposits'],
+      gallery: [`${IMG}dada.webp`],
+      tech: ['React + Vite + TypeScript', 'Node.js / Express', 'MongoDB', 'PaddleOCR', 'Gemini API', 'Cloudflare Workers', 'WhatsApp Business API', 'ClicToPay'],
+      caseStudy: {
+        problem: 'Bookings came in by phone and WhatsApp, and every rental meant retyping ID cards and driving licences into contracts by hand. That was slow and error-prone at the airport counter.',
+        built: [
+          'Booking site (React + Vite + TypeScript): catalogue by category, live prices, Tunis-Carthage airport delivery and an online deposit to confirm a booking.',
+          'Admin back-office and Node.js / Express / MongoDB API with scheduled jobs.',
+          'Document intake: ID cards and licences are scanned with OCR (PaddleOCR), and contracts and documents are extracted with Gemini on Cloudflare Workers.',
+          'Customer messaging through the WhatsApp Business API, ClicToPay card payments and transactional e-mail.'
+        ],
+        challenges: [
+          'Reliable extraction from ID and licence photos taken on phones: raw OCR text is turned into structured fields by an LLM running on Cloudflare Workers.',
+          'Bilingual French / Arabic content and dinar pricing across the site, admin and messages.'
+        ],
+        results: [
+          'Live at dadarentcar.com with online booking and deposits.',
+          'Customer documents are captured automatically instead of being typed by hand.'
+        ]
+      }
     },
     {
       title: 'Shnell Admin Dashboard',
-      category: 'Web · Angular',
+      category: 'Web · Angular · Real-time',
       image: 'assets/img/dashboard.png',
       link: 'https://shnell.tn',
-      summary: 'Operations dashboard for the Shnell delivery platform.',
-      description: 'The admin panel the Shnell team uses to follow deliveries, drivers, users and revenue in real time, with role-based access and analytics. Regions, currencies and languages are managed from here, so a new country can be opened without changing the apps.',
+      linkLabel: 'Visit shnell.tn',
+      summary: 'Operations dashboard for the Shnell platform: orders, drivers, revenue and regions.',
+      description: 'The admin panel the Shnell team uses to follow deliveries, verify drivers, manage users and track revenue in real time, with role-based access and analytics. Regions, currencies and languages are managed here, so a new country can open without changing the apps.',
       tech: ['Angular', 'Firebase', 'RxJS', 'Chart.js']
     },
     {
       title: 'Ste Belhaj Amor',
       category: 'Web · Client website',
-      image: 'assets/img/belhaj-amor.png',
+      image: `${IMG}belhaj-amor.webp`,
       link: 'https://ste-belhaj-amor.web.app',
-      summary: 'Showcase website for a tiles, ceramics and sanitaryware store in Sahline.',
-      description: 'A bilingual (French / Arabic) website for Ste Belhaj Amor, a building-materials store on the Sousse road in Sahline selling stoneware, wall tiles, ceramics and sanitaryware. It presents the product range and the store, highlights the instalment payment offer (a deposit, then a monthly amount), and turns visitors into customers with one-tap WhatsApp and phone contact. Built with Angular and hosted on Firebase.',
-      tech: ['Angular', 'Firebase Hosting', 'Multilingual FR · AR', 'WhatsApp contact', 'Responsive design', 'SEO']
+      linkLabel: 'Visit the website',
+      summary: 'Bilingual showcase site for a tiles, ceramics and sanitaryware store in Sahline.',
+      description: 'A French / Arabic website for Ste Belhaj Amor, a building-materials store on the Sousse road in Sahline. It presents the product range and the store, highlights the instalment payment offer (a deposit, then a monthly amount), and turns visitors into customers with one-tap WhatsApp and phone contact.',
+      tech: ['Angular', 'Firebase Hosting', 'Multilingual FR · AR', 'Responsive design', 'SEO']
     },
     {
       title: 'Coach Aymen Othmeni',
       category: 'Web · Client website',
-      image: 'assets/img/face.png',
+      image: `${IMG}coach-othmeni.webp`,
       link: 'https://coach-othmeni.pages.dev',
-      summary: 'Website for a sports coach, deployed on Cloudflare Pages.',
-      description: 'A fast, responsive website for a sports coach: services, programmes and clear calls to action so visitors can get in touch. Hosted on Cloudflare Pages.',
+      linkLabel: 'Visit the website',
+      summary: 'Conversion-focused website for a weight-loss coach based in Dubai.',
+      description: 'A fast, dark-themed website for a Dubai-based weight-loss coach: offers, an application flow for new clients and a link to the client dashboard. Hosted on Cloudflare Pages.',
       tech: ['Angular', 'Cloudflare Pages', 'Responsive design']
     },
     {
       title: 'AI Assistant',
-      category: 'AI · Self-hosted LLM',
+      category: 'AI · Open-source LLM at the edge',
       image: 'assets/img/chatbot.png',
       link: '#ask-ai',
-      summary: 'The assistant on this page: an open-source LLM served at the edge.',
-      description: 'An open-source language model (Llama 3.1) running on Cloudflare Workers AI, called from a serverless Pages Function I wrote: fixed system prompt with my profile, input limits, rate limiting and streamed answers. Always on, no server to maintain. Try it in the "Ask my AI" section.',
+      linkLabel: 'Try it on this page',
+      summary: 'The assistant on this page: an open-source LLM served by Cloudflare Workers AI.',
+      description: 'An open-source model (Llama 3.1) on Cloudflare Workers AI, called from a serverless Pages Function I wrote: fixed system prompt with my profile, input limits, rate limiting and streamed answers. Always on, with no server to maintain.',
       tech: ['Cloudflare Workers AI', 'Pages Functions', 'Llama 3.1', 'TypeScript', 'Streaming']
     }
   ];
 
-  skillGroups = [
+  readonly skillGroups = [
     { title: 'Mobile', icon: 'fa fa-mobile', items: ['Flutter', 'Dart', 'Firebase (Auth, Firestore, FCM)', 'Google Maps', 'Play Store publishing'] },
     { title: 'Web', icon: 'fa fa-code', items: ['Angular', 'RxJS', 'React + Vite', 'TypeScript', 'Responsive UI'] },
     { title: 'Backend', icon: 'fa fa-server', items: ['Node.js / Express', 'MongoDB', 'REST APIs', 'WebSockets', 'Cron jobs'] },
@@ -125,131 +200,23 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.initializeAnimations();
-      this.initBg();
-      this.initMagnificPopup();
-      this.hidePreloader();
-      this.initLottie();
-      this.initLottieWebsiteChar();
-      this.initLottieBizWoman();
-    }
-  }
-
-  ngOnDestroy() {
-    if (this.lottieAnimation) this.lottieAnimation.destroy();
-    if (this.lottieWebsiteChar) this.lottieWebsiteChar.destroy();
-    if (this.lottieBizWoman) this.lottieBizWoman.destroy();
-  }
-
-  openProject(project: Project, event: Event) {
-    event.preventDefault();
+  openProject(project: Project, event?: Event) {
+    event?.preventDefault();
     this.selectedProject = project;
-    document.body.style.overflow = 'hidden';
+    if (isPlatformBrowser(this.platformId)) document.body.style.overflow = 'hidden';
   }
 
   closeProject() {
     this.selectedProject = null;
-    document.body.style.overflow = '';
+    if (isPlatformBrowser(this.platformId)) document.body.style.overflow = '';
   }
 
-  private hidePreloader() {
-    $('.loader').fadeOut();
-    $('#preloder').delay(400).fadeOut('slow');
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    if (this.selectedProject) this.closeProject();
   }
 
-  private initBg() {
-    $('.set-bg').each(function(this: any) {
-      var bg = $(this).data('setbg');
-      if (bg) {
-        $(this).css('background-image', 'url(' + bg + ')');
-      }
-    });
-  }
-
-  private initMagnificPopup() {
-    $('.portfolio-item .port-pic').filter(function(this: any) {
-      const href = $(this).attr('href');
-      return !$(this).hasClass('no-popup') && href && /(jpg|jpeg|png|gif|bmp|webp)$/i.test(href);
-    }).magnificPopup({
-      type: 'image',
-      mainClass: 'img-popup-warp',
-      removalDelay: 500,
-    });
-  }
-
-  private initializeAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    document.querySelectorAll('.reveal').forEach((el) => {
-      observer.observe(el);
-    });
-  }
-
-  private async initLottie() {
-    try {
-      const lottie = await import('lottie-web');
-      const response = await fetch('assets/Global Network.json');
-      const animationData = await response.json();
-
-      const container = document.getElementById('lottie-hero');
-      if (!container) return;
-
-      this.lottieAnimation = lottie.default.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-      });
-    } catch (e) {
-      console.warn('Lottie failed to load:', e);
-    }
-  }
-  private async initLottieWebsiteChar() {
-    try {
-      const lottie = await import('lottie-web');
-      const response = await fetch('assets/Website character animation.json');
-      const animationData = await response.json();
-      const container = document.getElementById('lottie-website-char');
-      if (!container) return;
-      this.lottieWebsiteChar = lottie.default.loadAnimation({
-        container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData,
-      });
-    } catch (e) {
-      console.warn('Website char Lottie failed:', e);
-    }
-  }
-
-  private async initLottieBizWoman() {
-    try {
-      const lottie = await import('lottie-web');
-      const response = await fetch('assets/Business woman.json');
-      const animationData = await response.json();
-      const container = document.getElementById('lottie-biz-woman');
-      if (!container) return;
-      this.lottieBizWoman = lottie.default.loadAnimation({
-        container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData,
-      });
-    } catch (e) {
-      console.warn('Business woman Lottie failed:', e);
-    }
+  isInternal(link: string) {
+    return link.startsWith('#');
   }
 }

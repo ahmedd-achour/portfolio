@@ -1,82 +1,71 @@
-<!-- Page Preloader -->
-<div id="preloder">
-  <div class="loader"></div>
-</div>
-
 <div class="home-two-style">
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║              HEADER                      ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
+  <!-- ═════════════ HEADER ═════════════ -->
   <header class="header-section">
     <div class="container-fluid">
       <div class="row align-items-center header-row">
         <div class="col-auto">
           <div class="site-logo">
-            <h2><a routerLink="/">Achour<span class="logo-dot">.</span></a></h2>
-            <p>Mobile &amp; Full-Stack Developer · +216 94 190 332</p>
+            <h2><a href="#home">Achour<span class="logo-dot">.</span></a></h2>
+            <p>Mobile &amp; Full-Stack Developer</p>
           </div>
         </div>
         <nav class="col header-nav" aria-label="Sections">
+          <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
-          <a href="#portfolio">Projects</a>
-          <a href="#education">Education</a>
+          <a href="#ask-ai">Ask my AI</a>
           <a href="#contact">Contact</a>
         </nav>
         <div class="col-auto header-buttons">
-          <a href="#ask-ai" class="no-popup site-btn ghost-btn">Ask my AI</a>
-          <a href="https://wa.me/21694190332" target="_blank" class="no-popup site-btn">Contact Me</a>
-          <a href="/assets/resume.pdf" download="CV_Achour_Ahmed.pdf" class="no-popup site-btn">Download CV</a>
+          <a [href]="linkedin" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a [href]="whatsapp" target="_blank" rel="noopener" class="site-btn ghost-btn">Contact me</a>
+          <a href="/assets/resume.pdf" download="CV_Achour_Ahmed.pdf" class="site-btn">Download CV</a>
         </div>
       </div>
     </div>
   </header>
-  <!-- Header end -->
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║              HERO SECTION                ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
-  <section class="hero-section spad" id="home">
+  <!-- ═════════════ HERO ═════════════ -->
+  <section class="hero-section" id="home">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
           <div class="row align-items-center">
 
-            <!-- Left: text -->
-            <div class="col-lg-6">
-              <div class="hero-text reveal reveal-left">
+            <div class="col-lg-6 order-2 order-lg-1">
+              <div class="hero-text">
                 <span class="open-badge"><span class="dot"></span>Open to work · Greater Tunis</span>
-                <h2>Hi, I'm <span class="text-gradient">Achour Ahmed</span></h2>
+                <h1>Hi, I'm <span class="text-gradient">Achour Ahmed</span></h1>
                 <p>
-                  Mobile &amp; full-stack developer (Flutter · Angular · Node.js).
-                  I build and ship real products: <b>Shnell</b>, a multi-region delivery platform with in-app calls and a matching engine, live on Google Play,
-                  and <b>DADA Rent Car</b>, a car rental platform with AI document automation.
+                  Mobile &amp; full-stack developer. I build products end to end and ship them:
+                  <b>Shnell</b>, a real-time transport platform with two apps live on Google Play,
+                  <b>FawaNews</b>, a live-score app with <b>100K+ downloads</b>,
+                  and <b>DADA Rent Car</b>, a rental platform with AI document automation.
                 </p>
                 <div class="hero-ctas">
-                  <a href="#portfolio" class="site-btn">See my work <i class="fa-solid fa-arrow-right"></i></a>
-                  <a href="#ask-ai" class="site-btn ghost-btn">Ask my AI assistant</a>
+                  <a href="#work" class="site-btn">See my work <i class="fa-solid fa-arrow-right"></i></a>
+                  <a [href]="linkedin" target="_blank" rel="noopener" class="site-btn ghost-btn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
                 </div>
               </div>
 
-              <div class="hero-info reveal reveal-left">
-                <h2>General Info</h2>
+              <div class="hero-info">
                 <ul>
-                  <li><span>Role</span>Mobile &amp; Full-Stack Developer</li>
                   <li><span>Stack</span>Flutter · Angular · React · Node.js · Firebase · Cloudflare</li>
-                  <li><span>E-mail</span><a href="mailto:achourahmed709&#64;gmail.com">achourahmed709&#64;gmail.com</a></li>
-                  <li><span>Location</span>Boumhel, Ben Arous (Greater Tunis)</li>
+                  <li><span>Based in</span>Boumhel, Ben Arous (Greater Tunis)</li>
                   <li><span>Languages</span>Arabic · French · English</li>
+                  <li><span>E-mail</span><a href="mailto:achourahmed709&#64;gmail.com">achourahmed709&#64;gmail.com</a></li>
                 </ul>
               </div>
             </div>
 
-            <!-- Right: photo -->
-            <div class="col-lg-6 hero-visual-col">
-              <div class="hero-photo reveal reveal-right">
+            <div class="col-lg-6 order-1 order-lg-2 hero-visual-col">
+              <div class="hero-photo">
                 <span class="hero-photo-blob" aria-hidden="true"></span>
-                <img class="hero-image" src="assets/img/ahmed-achour.jpg" alt="Achour Ahmed" width="560" height="560">
+                <img class="hero-image" src="assets/img/ahmed-achour.jpg" alt="Achour Ahmed" width="560" height="560" fetchpriority="high">
+                <div class="hero-float hero-float-a"><i class="fa-brands fa-google-play"></i><div><b>3 apps</b><small>live on Google Play</small></div></div>
+                <div class="hero-float hero-float-b"><i class="fa-solid fa-download"></i><div><b>100K+</b><small>downloads</small></div></div>
               </div>
             </div>
 
@@ -85,55 +74,17 @@
       </div>
     </div>
   </section>
-  <!-- Hero end -->
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║           SOCIAL LINKS                   ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
-  <div class="social-section reveal reveal-up">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xl-10 offset-xl-1">
-          <div class="social-link-warp">
-            <div class="social-links">
-              <a href="https://github.com/ahmedd-achour" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
-              <a href="https://myurls.co/achouuurrr/links/667be5447496f7002a8c1bc7/click" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
-              <a href="https://wa.me/21694190332" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
-              <a href="https://www.instagram.com/achourahmedd?igsh=aHdyd2p0cWtqcm16" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
-            </div>
-            <h2 class="hidden-md hidden-sm">Find me <span class="text-gradient">online</span></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Social end -->
-
-
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║           AT A GLANCE                    ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
-  <section class="glance-section" id="glance">
+  <!-- ═════════════ PROOF STRIP ═════════════ -->
+  <section class="glance-section" aria-label="Key numbers">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
           <div class="glance-grid">
-            <div class="glance-item reveal reveal-up reveal-delay-1">
-              <h3>3</h3>
-              <p>Apps published on Google Play</p>
-            </div>
-            <div class="glance-item reveal reveal-up reveal-delay-2">
-              <h3>2</h3>
-              <p>Production platforms (Shnell, DADA Rent Car)</p>
-            </div>
-            <div class="glance-item reveal reveal-up reveal-delay-3">
-              <h3>Licence</h3>
-              <p>Technologies de l'informatique, ISET 2025</p>
-            </div>
-            <div class="glance-item reveal reveal-up reveal-delay-4">
-              <h3>FR · EN · AR</h3>
-              <p>Works in French, English and Arabic</p>
+            <div class="glance-item" *ngFor="let s of stats">
+              <h3>{{ s.value }}</h3>
+              <p>{{ s.label }}</p>
             </div>
           </div>
         </div>
@@ -142,38 +93,145 @@
   </section>
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║           WORK EXPERIENCE                ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
+  <!-- ═════════════ FEATURED CASE STUDY ═════════════ -->
+  <section class="featured-section spad" id="work">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <div class="section-title">
+            <span class="eyebrow">Featured case study</span>
+            <h2>Shnell: from idea to <span class="text-gradient">two live apps</span></h2>
+          </div>
+
+          <article class="featured-card">
+            <button type="button" class="featured-media" (click)="openProject(shnellCase)" aria-label="Open the Shnell case study">
+              <img [src]="shnellCase.image" alt="Shnell client app v2.49: cargo type, price estimate and route in dark mode" loading="lazy" width="1200" height="760">
+            </button>
+            <div class="featured-body">
+              <p class="featured-lead">{{ shnellCase.summary }}</p>
+              <ul class="metric-pills">
+                <li *ngFor="let m of shnellCase.metrics">{{ m }}</li>
+              </ul>
+              <div class="featured-grid">
+                <div>
+                  <h3><i class="fa-solid fa-triangle-exclamation"></i> The problem</h3>
+                  <p>Booking a truck in Tunisia means phone calls, haggling and no tracking. Drivers lose hours waiting for work.</p>
+                </div>
+                <div>
+                  <h3><i class="fa-solid fa-layer-group"></i> What I built</h3>
+                  <p>Client and driver apps in Flutter: a 330+ item cargo builder, instant multi-vehicle pricing, driver offers, return trips, live tracking, in-app calls and an Angular admin.</p>
+                </div>
+                <div>
+                  <h3><i class="fa-solid fa-chart-line"></i> The result</h3>
+                  <p>Both apps live on Google Play, driver beta running, and ready for any country through configuration alone.</p>
+                </div>
+              </div>
+              <div class="hero-ctas">
+                <button type="button" class="site-btn" (click)="openProject(shnellCase)">Read the case study <i class="fa-solid fa-arrow-right"></i></button>
+                <a [href]="shnellCase.link" target="_blank" rel="noopener" class="site-btn ghost-btn"><i class="fa-brands fa-google-play"></i> Google Play</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═════════════ MOBILE PROJECTS ═════════════ -->
+  <section class="portfolio-section spad pt-0" id="mobile">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <div class="section-head">
+            <div class="section-title">
+              <span class="eyebrow">Mobile</span>
+              <h2>Apps on <span class="text-gradient">Google Play</span></h2>
+            </div>
+            <a [href]="github" target="_blank" rel="noopener" class="site-btn ghost-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+          <div class="project-grid two">
+            <ng-container *ngFor="let project of mobileProjects">
+              <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═════════════ WEB, AI & AUTOMATION ═════════════ -->
+  <section class="portfolio-section alt spad">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <div class="section-head">
+            <div class="section-title">
+              <span class="eyebrow">Shipped &amp; live</span>
+              <h2>Web, AI &amp; <span class="text-gradient">Automation</span></h2>
+              <p class="section-sub">Booking platforms, dashboards, client websites and AI automation, all in production.</p>
+            </div>
+          </div>
+          <div class="project-grid">
+            <ng-container *ngFor="let project of webProjects">
+              <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #projectCard let-project>
+    <article class="portfolio-item-v2" [class.featured]="project.featured" (click)="openProject(project, $event)" tabindex="0" (keydown.enter)="openProject(project, $event)" [attr.aria-label]="project.title + ': open details'">
+      <div class="port-img">
+        <img [src]="project.image" [alt]="project.title" loading="lazy">
+        <span class="featured-tag" *ngIf="project.caseStudy">Case study</span>
+        <div class="port-overlay"><span>{{ project.caseStudy ? 'Read the case study' : 'View details' }}</span></div>
+      </div>
+      <div class="port-text">
+        <p>{{ project.category }}</p>
+        <h3>{{ project.title }}</h3>
+        <p class="summary">{{ project.summary }}</p>
+        <ul class="metric-pills small" *ngIf="project.metrics">
+          <li *ngFor="let m of project.metrics">{{ m }}</li>
+        </ul>
+        <ul class="tech-chips" aria-label="Technologies">
+          <li *ngFor="let tech of project.tech.slice(0, 4)"><img *ngIf="techIcon(tech).src as src" [src]="src" alt="" loading="lazy"><i *ngIf="techIcon(tech).fa as fa" [class]="fa" aria-hidden="true"></i><span>{{ tech }}</span></li>
+          <li class="more" *ngIf="project.tech.length > 4">+{{ project.tech.length - 4 }}</li>
+        </ul>
+      </div>
+    </article>
+  </ng-template>
+
+
+  <!-- ═════════════ EXPERIENCE ═════════════ -->
   <section class="resume-section spad" id="experience">
     <div class="container-fluid">
-      <div class="row align-items-center">
-
-        <!-- Left: Timeline -->
-        <div class="col-xl-6 offset-xl-1 col-lg-7">
-
-          <div class="section-title reveal reveal-up">
+      <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+          <div class="section-title">
             <span class="eyebrow">Career</span>
             <h2>Work <span class="text-gradient">Experience</span></h2>
           </div>
 
           <ul class="resume-list">
-            <li class="reveal reveal-up">
+            <li>
               <h2>2025 – Now</h2>
               <h3>Founder &amp; Full-Stack Developer · Shnell</h3>
               <h4>On-demand logistics platform · shnell.tn</h4>
               <p>
-                Designed and built the client and driver apps (Flutter, Firebase, live on Google Play),
-                a matching engine that dispatches each request to the best nearby driver, real-time trip tracking over WebSockets,
-                a custom in-app communication system (voice calls, video calls, messaging) and the Angular admin dashboard.
-                Built multi-region from day one (currencies and languages), ready to launch in any country.
-                Deployment, API security and performance on Cloudflare.
+                Designed and built the client and driver apps (Flutter, Firebase, both live on Google Play),
+                offers-based matching between clients and nearby drivers, real-time trip tracking,
+                in-app voice calls, video calls and messaging, and the Angular admin dashboard.
+                Multi-region from day one (currencies and languages). Deployment, API security and performance on Cloudflare.
               </p>
             </li>
 
-            <li class="reveal reveal-up">
-              <h2>Recent</h2>
-              <h3>Developer · DADA Rent Car</h3>
+            <li>
+              <h2>2026</h2>
+              <h3>Full-Stack Developer · DADA Rent Car</h3>
               <h4>Car rental platform · dadarentcar.com</h4>
               <p>
                 Worked on the React booking site, admin panel and Node.js / MongoDB API, plus the automation layer:
@@ -182,51 +240,41 @@
               </p>
             </li>
 
-            <li class="reveal reveal-up">
-              <h2>2024</h2>
-              <h3>Customer Service &amp; Camera Installation Lead · Netsoft</h3>
-              <h4>Cité El Khadra, Tunis</h4>
+            <li>
+              <h2>Ongoing</h2>
+              <h3>Mobile Developer · FawaNews</h3>
+              <h4>Live-score app · Google Play</h4>
               <p>
-                Progress reports and follow-up meetings, direct communication with clients and the customer service team.
-              </p>
-            </li>
-
-            <li class="reveal reveal-up">
-              <h2>2023</h2>
-              <h3>Intern · Arab Tunisian Bank (ATB)</h3>
-              <h4>Tunis</h4>
-              <p>
-                Helped define and visualise financial transactions and took part in project planning (timelines, milestones, deliverables).
+                Built and published a Flutter live-score and sports-news app that passed 100K downloads,
+                backed by my own edge API on Cloudflare Workers.
               </p>
             </li>
           </ul>
 
+          <div class="earlier">
+            <h3>Earlier</h3>
+            <ul>
+              <li><span>2024</span>Netsoft, Tunis · Customer service &amp; installation team lead (client communication, progress reporting)</li>
+              <li><span>2023</span>Arab Tunisian Bank (ATB) · Intern, financial-transaction visualisation and project planning</li>
+            </ul>
+          </div>
         </div>
-
-        <!-- Right: Lottie Website Character -->
-        <div class="col-xl-4 col-lg-5 lottie-aside-col">
-          <div id="lottie-website-char" class="lottie-aside-wrapper reveal reveal-right"></div>
-        </div>
-
       </div>
     </div>
   </section>
-  <!-- Work Experience end -->
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║              SKILLS                      ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
+  <!-- ═════════════ SKILLS ═════════════ -->
   <section class="skills-section spad" id="skills">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
-          <div class="section-title reveal reveal-up">
+          <div class="section-title">
             <span class="eyebrow">Toolkit</span>
             <h2>Skills &amp; <span class="text-gradient">Technologies</span></h2>
           </div>
           <div class="skills-grid">
-            <div class="skill-group reveal reveal-up" *ngFor="let group of skillGroups">
+            <div class="skill-group" *ngFor="let group of skillGroups">
               <h3><i [class]="group.icon"></i>{{ group.title }}</h3>
               <ul>
                 <li *ngFor="let item of group.items"><span class="skill-icon"><img *ngIf="techIcon(item).src as src" [src]="src" alt="" loading="lazy"><i *ngIf="techIcon(item).fa as fa" [class]="fa" aria-hidden="true"></i></span>{{ item }}</li>
@@ -237,92 +285,9 @@
       </div>
     </div>
   </section>
-  <!-- Skills end -->
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║          MOBILE PROJECTS                 ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
-  <section class="portfolio-section spad pb-0" id="portfolio">
-    <div class="container-fluid">
-      <div class="row portfolio-header-row">
-        <div class="col-xl-4 col-md-8 offset-xl-2">
-          <div class="section-title reveal reveal-up">
-            <span class="eyebrow">Portfolio</span>
-            <h2>Mobile <span class="text-gradient">Projects</span></h2>
-          </div>
-        </div>
-        <div class="col-md-4 text-md-right reveal reveal-up">
-          <a href="https://github.com/ahmedd-achour" target="_blank" class="site-btn mb-5">See GitHub</a>
-        </div>
-      </div>
-
-      <div class="portfolio-warp">
-        <div class="row">
-          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up" *ngFor="let project of mobileProjects">
-            <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Mobile Projects end -->
-
-
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║            WEB, AI & AUTOMATION          ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
-  <section class="portfolio-section alt spad">
-    <div class="container-fluid">
-
-      <!-- Web section hero banner -->
-      <div class="row web-section-banner align-items-center">
-        <div class="col-xl-5 offset-xl-1 col-lg-6">
-          <div class="section-title reveal reveal-up">
-            <span class="eyebrow">Shipped &amp; live</span>
-            <h2>Web, AI &amp; <span class="text-gradient">Automation</span></h2>
-          </div>
-          <p class="web-section-subtitle reveal reveal-up">
-            Booking platforms, dashboards, client websites and AI automation, all shipped and live.
-          </p>
-          <a href="https://github.com/ahmedd-achour" target="_blank" class="site-btn mb-5 reveal reveal-up">See GitHub</a>
-        </div>
-        <div class="col-xl-4 col-lg-5 offset-xl-1">
-          <div id="lottie-biz-woman" class="lottie-biz-wrapper reveal reveal-right"></div>
-        </div>
-      </div>
-
-      <div class="portfolio-warp">
-        <div class="row">
-          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 reveal reveal-up" *ngFor="let project of webProjects">
-            <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <ng-template #projectCard let-project>
-    <div class="portfolio-item-v2" [class.featured]="project.featured" (click)="openProject(project, $event)">
-      <div class="port-img" [style.background-image]="'url(' + project.image + ')'">
-        <span class="featured-tag" *ngIf="project.featured">Featured</span>
-        <div class="port-overlay"><span>{{ project.link.startsWith('#') ? 'Try it below' : 'View Project' }}</span></div>
-      </div>
-      <div class="port-text">
-        <p>{{ project.category }}</p>
-        <h3>{{ project.title }}</h3>
-        <p class="summary">{{ project.summary }}</p>
-        <ul class="tech-chips" aria-label="Technologies">
-          <li *ngFor="let tech of project.tech"><img *ngIf="techIcon(tech).src as src" [src]="src" alt="" loading="lazy"><i *ngIf="techIcon(tech).fa as fa" [class]="fa" aria-hidden="true"></i><span>{{ tech }}</span></li>
-        </ul>
-      </div>
-    </div>
-  </ng-template>
-
-
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║            ASK MY AI                     ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
+  <!-- ═════════════ ASK MY AI ═════════════ -->
   <section class="ai-section spad" id="ask-ai">
     <div class="container-fluid">
       <div class="row">
@@ -334,21 +299,17 @@
   </section>
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║              EDUCATION                   ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
+  <!-- ═════════════ EDUCATION ═════════════ -->
   <section class="resume-section spad" id="education">
     <div class="container-fluid">
-      <div class="row align-items-center">
-
-        <div class="col-xl-6 offset-xl-1 col-lg-7">
-          <div class="section-title reveal reveal-up">
+      <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+          <div class="section-title">
             <span class="eyebrow">Learning</span>
             <h2><span class="text-gradient">Education</span></h2>
           </div>
-
           <ul class="resume-list">
-            <li class="reveal reveal-up">
+            <li>
               <h2>2022 – 2025</h2>
               <h3>Licence en Technologies de l'informatique</h3>
               <h4>ISET Sidi Bouzid</h4>
@@ -357,86 +318,100 @@
                 including planning, schedule, resources, budget and risk management.
               </p>
             </li>
-            <li class="reveal reveal-up">
+            <li>
               <h2>2022</h2>
               <h3>Baccalauréat Mathématiques</h3>
               <h4>Lycée Cité Avicenne</h4>
             </li>
           </ul>
         </div>
-
-        <div class="col-xl-4 col-lg-5 lottie-aside-col">
-          <div id="lottie-hero" class="lottie-hero-wrapper reveal reveal-right"></div>
-        </div>
-
       </div>
     </div>
   </section>
-  <!-- Education end -->
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║              CONTACT                     ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
+  <!-- ═════════════ CONTACT ═════════════ -->
   <section class="contact-cta spad" id="contact">
-    <div class="container text-center reveal reveal-up">
-     <div class="contact-banner">
-      <span class="eyebrow">Open to work</span>
-      <h2>Let's build something great together</h2>
-      <p>I'm available for a full-time role in Greater Tunis. The fastest way to reach me is WhatsApp or e-mail.</p>
-      <div class="hero-ctas justify-content-center">
-        <a href="https://wa.me/21694190332" target="_blank" class="site-btn">WhatsApp +216 94 190 332</a>
-        <a href="mailto:achourahmed709&#64;gmail.com" class="site-btn ghost-btn">achourahmed709&#64;gmail.com</a>
-        <a href="/assets/resume.pdf" download="CV_Achour_Ahmed.pdf" class="site-btn ghost-btn">Download CV (PDF)</a>
+    <div class="container text-center">
+      <div class="contact-banner">
+        <span class="eyebrow">Open to work</span>
+        <h2>Let's build something great together</h2>
+        <p>I'm available for a full-time role in Greater Tunis. The fastest way to reach me is WhatsApp, e-mail or LinkedIn.</p>
+        <div class="hero-ctas justify-content-center">
+          <a [href]="whatsapp" target="_blank" rel="noopener" class="site-btn"><i class="fa-brands fa-whatsapp"></i> +216 94 190 332</a>
+          <a [href]="linkedin" target="_blank" rel="noopener" class="site-btn ghost-btn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+          <a href="mailto:achourahmed709&#64;gmail.com" class="site-btn ghost-btn"><i class="fa-regular fa-envelope"></i> E-mail</a>
+          <a href="/assets/resume.pdf" download="CV_Achour_Ahmed.pdf" class="site-btn ghost-btn"><i class="fa-solid fa-file-arrow-down"></i> CV (PDF)</a>
+        </div>
       </div>
-     </div>
     </div>
   </section>
 
 
-  <!-- ╔══════════════════════════════════════════╗ -->
-  <!-- ║              FOOTER                      ║ -->
-  <!-- ╚══════════════════════════════════════════╝ -->
+  <!-- ═════════════ FOOTER ═════════════ -->
   <footer class="footer-section">
-    <div class="container text-center">
-      <div class="copyright">
-        &copy; Achour Ahmed — Mobile &amp; Full-Stack Developer
+    <div class="container footer-row">
+      <div class="copyright">&copy; Achour Ahmed · Mobile &amp; Full-Stack Developer</div>
+      <div class="footer-links">
+        <a [href]="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a [href]="github" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a [href]="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:achourahmed709&#64;gmail.com" aria-label="E-mail"><i class="fa-regular fa-envelope"></i></a>
       </div>
     </div>
   </footer>
-  <!-- Footer end -->
 
-</div><!-- /.home-two-style -->
+</div>
 
 
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║           PROJECT MODAL                  ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
+<!-- ═════════════ PROJECT / CASE STUDY MODAL ═════════════ -->
 <div class="project-modal" [class.active]="selectedProject" (click)="closeProject()">
-  <div class="modal-content" *ngIf="selectedProject" (click)="$event.stopPropagation()">
-    <button class="close-btn" (click)="closeProject()">&times;</button>
-    <div class="modal-inner">
-      <!-- Image -->
-      <div class="modal-image-wrap">
-        <img  [src]="selectedProject.image" alt="{{ selectedProject.title }}" class="modal-image">
+  <div class="modal-content" *ngIf="selectedProject as p" (click)="$event.stopPropagation()" role="dialog" aria-modal="true" [attr.aria-label]="p.title">
+    <button class="close-btn" (click)="closeProject()" aria-label="Close">&times;</button>
+
+    <div class="modal-gallery" *ngIf="p.gallery && p.gallery.length > 1; else singleImage">
+      <img *ngFor="let g of p.gallery" [src]="g" [alt]="p.title + ' screenshot'" loading="lazy">
+    </div>
+    <ng-template #singleImage>
+      <div class="modal-cover"><img [src]="p.gallery?.[0] || p.image" [alt]="p.title"></div>
+    </ng-template>
+
+    <div class="modal-details">
+      <span class="category">{{ p.category }}</span>
+      <h2>{{ p.title }}</h2>
+      <ul class="metric-pills" *ngIf="p.metrics">
+        <li *ngFor="let m of p.metrics">{{ m }}</li>
+      </ul>
+      <p class="modal-lead">{{ p.description }}</p>
+
+      <div class="case" *ngIf="p.caseStudy as c">
+        <section>
+          <h3><i class="fa-solid fa-triangle-exclamation"></i> The problem</h3>
+          <p>{{ c.problem }}</p>
+        </section>
+        <section>
+          <h3><i class="fa-solid fa-layer-group"></i> What I built</h3>
+          <ul><li *ngFor="let b of c.built">{{ b }}</li></ul>
+        </section>
+        <section>
+          <h3><i class="fa-solid fa-puzzle-piece"></i> Hard parts &amp; how I solved them</h3>
+          <ul><li *ngFor="let h of c.challenges">{{ h }}</li></ul>
+        </section>
+        <section>
+          <h3><i class="fa-solid fa-chart-line"></i> Results</h3>
+          <ul class="results"><li *ngFor="let r of c.results">{{ r }}</li></ul>
+        </section>
       </div>
-      <!-- Details -->
-      <div class="modal-details">
-        <span class="category">{{ selectedProject.category }}</span>
-        <h2>{{ selectedProject.title }}</h2>
-        <div class="modal-description">
-          <p>{{ selectedProject.description }}</p>
-        </div>
-        <div class="tech-stack">
-          <h4>Tech Stack</h4>
-          <ul>
-            <li *ngFor="let tech of selectedProject.tech"><img *ngIf="techIcon(tech).src as src" [src]="src" alt="" loading="lazy"><i *ngIf="techIcon(tech).fa as fa" [class]="fa" aria-hidden="true"></i>{{ tech }}</li>
-          </ul>
-        </div>
-        <a [href]="selectedProject.link" target="_blank" class="modal-cta">
-          View Live Project <i class="fa-solid fa-arrow-right"></i>
-        </a>
+
+      <div class="tech-stack">
+        <h4>Tech stack</h4>
+        <ul>
+          <li *ngFor="let tech of p.tech"><img *ngIf="techIcon(tech).src as src" [src]="src" alt="" loading="lazy"><i *ngIf="techIcon(tech).fa as fa" [class]="fa" aria-hidden="true"></i>{{ tech }}</li>
+        </ul>
       </div>
+      <a [href]="p.link" [attr.target]="isInternal(p.link) ? null : '_blank'" rel="noopener" class="modal-cta" (click)="isInternal(p.link) && closeProject()">
+        {{ p.linkLabel || 'View live project' }} <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </div>
