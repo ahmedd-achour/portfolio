@@ -13,11 +13,18 @@
       <div class="row align-items-center header-row">
         <div class="col-auto">
           <div class="site-logo">
-            <h2><a routerLink="/">ACHOUR</a></h2>
+            <h2><a routerLink="/">Achour<span class="logo-dot">.</span></a></h2>
             <p>Mobile &amp; Full-Stack Developer · +216 94 190 332</p>
           </div>
         </div>
-        <div class="col header-buttons">
+        <nav class="col header-nav" aria-label="Sections">
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#portfolio">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="col-auto header-buttons">
           <a href="#ask-ai" class="no-popup site-btn ghost-btn">Ask my AI</a>
           <a href="https://wa.me/21694190332" target="_blank" class="no-popup site-btn">Contact Me</a>
           <a href="/assets/resume.pdf" download="CV_Achour_Ahmed.pdf" class="no-popup site-btn">Download CV</a>
@@ -41,14 +48,14 @@
             <div class="col-lg-6">
               <div class="hero-text reveal reveal-left">
                 <span class="open-badge"><span class="dot"></span>Open to work · Greater Tunis</span>
-                <h2>Achour Ahmed</h2>
+                <h2>Hi, I'm <span class="text-gradient">Achour Ahmed</span></h2>
                 <p>
                   Mobile &amp; full-stack developer (Flutter · Angular · Node.js).
                   I build and ship real products: <b>Shnell</b>, a multi-region delivery platform with in-app calls and a matching engine, live on Google Play,
                   and <b>DADA Rent Car</b>, a car rental platform with AI document automation.
                 </p>
                 <div class="hero-ctas">
-                  <a href="#portfolio" class="site-btn">See my work</a>
+                  <a href="#portfolio" class="site-btn">See my work <i class="fa-solid fa-arrow-right"></i></a>
                   <a href="#ask-ai" class="site-btn ghost-btn">Ask my AI assistant</a>
                 </div>
               </div>
@@ -95,7 +102,7 @@
               <a href="https://wa.me/21694190332" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
               <a href="https://www.instagram.com/achourahmedd?igsh=aHdyd2p0cWtqcm16" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
             </div>
-            <h2 class="hidden-md hidden-sm">My Dev Profiles</h2>
+            <h2 class="hidden-md hidden-sm">Find me <span class="text-gradient">online</span></h2>
           </div>
         </div>
       </div>
@@ -146,7 +153,8 @@
         <div class="col-xl-6 offset-xl-1 col-lg-7">
 
           <div class="section-title reveal reveal-up">
-            <h2>Work Experience</h2>
+            <span class="eyebrow">Career</span>
+            <h2>Work <span class="text-gradient">Experience</span></h2>
           </div>
 
           <ul class="resume-list">
@@ -214,7 +222,8 @@
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
           <div class="section-title reveal reveal-up">
-            <h2>Skills</h2>
+            <span class="eyebrow">Toolkit</span>
+            <h2>Skills &amp; <span class="text-gradient">Technologies</span></h2>
           </div>
           <div class="skills-grid">
             <div class="skill-group reveal reveal-up" *ngFor="let group of skillGroups">
@@ -239,7 +248,8 @@
       <div class="row portfolio-header-row">
         <div class="col-xl-4 col-md-8 offset-xl-2">
           <div class="section-title reveal reveal-up">
-            <h2>Mobile Projects</h2>
+            <span class="eyebrow">Portfolio</span>
+            <h2>Mobile <span class="text-gradient">Projects</span></h2>
           </div>
         </div>
         <div class="col-md-4 text-md-right reveal reveal-up">
@@ -262,14 +272,15 @@
   <!-- ╔══════════════════════════════════════════╗ -->
   <!-- ║            WEB, AI & AUTOMATION          ║ -->
   <!-- ╚══════════════════════════════════════════╝ -->
-  <section class="portfolio-section spad">
+  <section class="portfolio-section alt spad">
     <div class="container-fluid">
 
       <!-- Web section hero banner -->
       <div class="row web-section-banner align-items-center">
         <div class="col-xl-5 offset-xl-1 col-lg-6">
           <div class="section-title reveal reveal-up">
-            <h2>Web, AI &amp; Automation</h2>
+            <span class="eyebrow">Shipped &amp; live</span>
+            <h2>Web, AI &amp; <span class="text-gradient">Automation</span></h2>
           </div>
           <p class="web-section-subtitle reveal reveal-up">
             Booking platforms, dashboards, client websites and AI automation, all shipped and live.
@@ -332,7 +343,8 @@
 
         <div class="col-xl-6 offset-xl-1 col-lg-7">
           <div class="section-title reveal reveal-up">
-            <h2>Education</h2>
+            <span class="eyebrow">Learning</span>
+            <h2><span class="text-gradient">Education</span></h2>
           </div>
 
           <ul class="resume-list">
@@ -368,13 +380,16 @@
   <!-- ╚══════════════════════════════════════════╝ -->
   <section class="contact-cta spad" id="contact">
     <div class="container text-center reveal reveal-up">
-      <h2>Let's work together</h2>
+     <div class="contact-banner">
+      <span class="eyebrow">Open to work</span>
+      <h2>Let's build something great together</h2>
       <p>I'm available for a full-time role in Greater Tunis. The fastest way to reach me is WhatsApp or e-mail.</p>
       <div class="hero-ctas justify-content-center">
         <a href="https://wa.me/21694190332" target="_blank" class="site-btn">WhatsApp +216 94 190 332</a>
         <a href="mailto:achourahmed709&#64;gmail.com" class="site-btn ghost-btn">achourahmed709&#64;gmail.com</a>
         <a href="/assets/resume.pdf" download="CV_Achour_Ahmed.pdf" class="site-btn ghost-btn">Download CV (PDF)</a>
       </div>
+     </div>
     </div>
   </section>
 
@@ -419,7 +434,7 @@
           </ul>
         </div>
         <a [href]="selectedProject.link" target="_blank" class="modal-cta">
-          View Live Project →
+          View Live Project <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </div>
