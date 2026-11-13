@@ -453,7 +453,7 @@
           <li *ngFor="let tech of p.tech"><img *ngIf="techIcon(tech).src as src" [src]="src" alt="" loading="lazy"><i *ngIf="techIcon(tech).fa as fa" [class]="fa" aria-hidden="true"></i>{{ tech }}</li>
         </ul>
       </div>
-      <a [href]="p.link" [attr.target]="isInternal(p.link) ? null : '_blank'" rel="noopener" class="modal-cta" (click)="isInternal(p.link) && closeProject()">
+      <a [href]="p.link" [attr.target]="isInternal(p.link) ? null : '_blank'" rel="noopener" class="modal-cta" (click)="onCtaClick(p.link)">
         {{ p.linkLabel || 'View live project' }} <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>

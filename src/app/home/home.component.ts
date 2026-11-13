@@ -226,4 +226,10 @@ export class HomeComponent {
   isInternal(link: string) {
     return link.startsWith('#');
   }
+
+  /** Never return false here: Angular calls preventDefault() when a
+   *  (click) handler returns false, which would block the link. */
+  onCtaClick(link: string): void {
+    if (this.isInternal(link)) this.closeProject();
+  }
 }
